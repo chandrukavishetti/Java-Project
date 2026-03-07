@@ -1,0 +1,10 @@
+package com.chandru.string_assignment.model;
+
+public class FileNameValidatorModel {
+	private String validator;
+	
+	public FileNameValidatorModel(validator) {
+		this.validator=validator;
+	}
+
+}

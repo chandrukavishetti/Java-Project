@@ -1,0 +1,126 @@
+1️)Why do you want to learn Java — truly?
+Answer: i want to learn java because to solve real world problem and java has a demand over the period of time and it is 
+a long term investment for me.
+
+2️)What do you think software engineering actually is?
+ans: Software engineering is solving real-world problems using technology in a structured and efficient way.
+
+3️)When you get stuck in coding, what do you usually do?
+ans: when i am learning the language then i stuck and i usually try to solve by dividing into small parts and i take help from experts and AI.
+
+4️)Have you ever built something fully on your own from scratch?
+ans: yes i worked on the database MySQL where i created schema, written the queries.
+
+5️)Do you prefer being told exactly what to do, or figuring things out yourself?
+ans: I prefer understanding the problem statement and then figuring out the solution myself.
+
+6️)What is your biggest technical weakness right now?
+ans: I need to improve my problem-solving speed and real-time debugging skills and i have less knowledge of the java programming.
+
+7️)Are you comfortable failing publicly (during live coding or reviews)?
+ans: yes, i see it is a part of learning and i good to learn from mistakes.
+
+8️)If ChatGPT can generate code for you, why should a company hire you?
+ans: Because I understand the logic, debug issues, and work with in a team and AI do not have the emotion.
+
+9️) What are you willing to do outside session hours?
+ans: I am willing to practice more what every day tought me in session, learn new concepts, and work on improving my skills daily and become 
+1% better than yesterday and entertaining my self by watching cricket and listening music.
+
+10) After 4 months, what should you be able to confidently say?
+ans: I should be able to build a real-world project independently and contribute to a team confidently and i can gain the 
+good communication skill to interact with the clients.
+
+1)If computers understand only 0s and 1s, why do we even need programming languages?
+2)What does “write once, run anywhere” actually mean technically?
+3)What problem does a “compiler” solve fundamentally?
+4)Why does Java use bytecode instead of directly producing machine code?
+5)What is the difference between JDK, JRE, and JVM conceptually (not definition)?
+6)Why must every Java program have a specific structure (public class + main method)?
+7)Why do variables exist? What is their fundamental purpose?
+8)Why does Java enforce naming conventions (camelCase, PascalCase)?
+9)If Java is compiled, why do people say it is interpreted?
+10)If JVM crashes, what happens to all running Java applications? 
+ 
+
+13/02/26
+Remaining questions of Array
+Call stack
+typecasting
+Wrapper classes
+String , StringBuffer, StringBuilder, Mutable and unmutabality
+Class Diagrams
+I/O Streams
+assignment questions 
+command line argument
+
+18/02/2026
+1.Object Calesthenics
+2.Method overloading
+3.DRY(Don't Repeate Yourself) principles
+4.Reduce else blocks
+5.static methods/variables
+6.instance vs static methods
+7.Inheritance
+
+
+
+
+package com.chandru.inheritance.model;
+
+public class SavingsAccount extends Account {
+	private double minBalance;
+
+	public SavinsgAccount(Stirng accountNumber,String holderName,double balance,double minBalance) {
+		super(accountNumber,holderName,balance);
+		this.minBalance=minBalance;
+	}
+
+	@override
+	public void withdraw(double amount) {
+		if (amount <= 0) {
+			System.out.println("invalid withdrawal amount");
+			return;
+		}
+		if (balance - amount < minBalance) {
+			System.out.println("cannot withdraw minimum balance should be maintained");
+			return;
+		}
+		super.withdraw(amount);
+	}
+}
+
+
+
+chatGPT code
+
+package com.chandru.inheritance.model;
+
+public class SavingsAccount extends Account {
+
+    private double minBalance;
+
+    public SavingsAccount(String accountNumber, String holderName,
+                          double balance, double minBalance) {
+        super(accountNumber, holderName, balance);
+        this.minBalance = minBalance;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+
+        if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount.");
+            return;
+        }
+
+        if (balance - amount < minBalance) {
+            System.out.println("Cannot withdraw. Minimum balance must be maintained.");
+            return;
+        }
+
+        super.withdraw(amount);
+    }
+}
+
+ 

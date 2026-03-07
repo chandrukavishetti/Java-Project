@@ -1,0 +1,27 @@
+package com.chandru.string_assignment.test;
+
+import java.util.Scanner;
+import com.chandru.string_assignment.model.PasswordValidatorModel;
+
+public class PasswordValidatorTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		try {
+			System.out.println("enter the password it must contains :");
+			System.out.println("1.minimum 8 charecter");
+			System.out.println("2. atleast one uppercase");
+			System.out.println("2. atleast one lowercase");
+			System.out.println("2. atleast one digit");
+
+			String input = scanner.nextLine();
+
+			PasswordValidatorModel validator = new PasswordValidatorModel(input);
+			validator.passwordChecker();
+		} catch (Exception e) {
+			System.out.println("error : " + e.getMessage());
+		} finally {
+			scanner.close();
+		}
+	}
+}

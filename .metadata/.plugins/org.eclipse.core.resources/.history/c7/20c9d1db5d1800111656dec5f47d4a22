@@ -1,0 +1,52 @@
+package com.chandru.string_assignment.model;
+
+public class EmailAnalyzer {
+	private String email;
+
+	public EmailAnalyzer(String email) {
+		this.email = email;
+	}
+
+	public void analyzeEmail() {
+		try {
+			email = email.trim();
+
+			if (!email.contains("@")) {
+				throw new Exception("Invalid email '@' symbol missing");
+			}
+
+			int atIndex = email.indexOf("@");// position of the '@' symbol
+
+			if (atIndex == 0 || atIndex == email.length() - 1) {
+				throw new Exception("Invalid email user or domainl missing");
+			}
+
+			String username = email.substring(0, atIndex);
+
+			String domain = email.substring(atIndex + 1);
+
+			int usernameLength = username.length();
+
+			boolean containsDigit = false;
+			for (int i = 0; i < username.length(); i++) {
+				if (Character.isDigit(username.charAt(i))) {
+					containsDigit = true;
+					break;
+				}
+			}
+			String modifiedUsername = username.replace(".", "_");
+
+			boolean isGmail = domain.equalsIgnoreCase("gmail.com");
+
+			System.out.println("user name : " + username);
+			System.out.println("domain  : " + domain);
+			System.out.println("total charecter in user name :  " + usernameLength);
+			System.out.println("Modified username  : " + modifiedUsername);
+			System.out.println("belogs to gmail.com : " + (isGmail ? "yes" : "no"));
+
+		} catch (Exception e) {
+			System.out.println("Error : " + e.getMessage());
+		}
+	}
+
+}

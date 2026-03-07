@@ -1,0 +1,13 @@
+package com.chandru.string_assignment.model;
+
+public class ProductCodeParserModel {
+	public Product(String input) {
+		this.input=input;
+	}
+	public void ProductCodeParser() {
+		try {
+			input=input.trim();
+		}
+	}
+
+}

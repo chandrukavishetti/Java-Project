@@ -1,0 +1,57 @@
+package com.chandru.string_assignment.model;
+
+public class ProductCodeParserModel {
+
+    private String input;
+
+    // Fixed constructor name to match the class name
+    public ProductCodeParserModel(String input) {
+        this.input = input;
+    }
+
+    public void ProductCodeParser() {
+        try {
+            // 1. Trim and Split the product code 
+            String trimmedInput = input.trim();
+            String[] data = trimmedInput.split("-");
+
+            // Validation for correct format: CAT-ITEMCODE-YEAR [cite: 28]
+            if (data.length != 3) {
+                throw new Exception("Input must be in the format: CAT-ITEMCODE-YEAR");
+            }
+
+            // 2. Extract parts 
+            String category = data[0];
+            String prodname = data[1];
+            String manufacture_year = data[2];
+
+            // 3. Convert category to uppercase [cite: 37]
+            category = category.toUpperCase();
+
+            // 4. Check if product name starts with "TV" [cite: 38]
+            boolean startsWithTV = prodname.startsWith("TV");
+
+            // 5. Check if code ends with "2023" [cite: 39]
+            boolean endsWith2023 = trimmedInput.endsWith("2023");
+
+            // 6. Replace hyphens with spaces [cite: 40]
+            String modifiedCode = trimmedInput.replace("-", " ");
+
+            // 7. Find position of first hyphen [cite: 41]
+            int firstHyphenPos = trimmedInput.indexOf("-");
+
+            // Expected Output [cite: 42-48]
+            System.out.println("Category: " + category);
+            System.out.println("Product: " + prodname);
+            System.out.println("Year: " + manufacture_year);
+            System.out.println("Starts with TV: " + (startsWithTV ? "Yes" : "No"));
+            System.out.println("Ends with 2023: " + (endsWith2023 ? "Yes" : "No"));
+            System.out.println("Modified Code: " + modifiedCode);
+            // Including position as requested by task 7 [cite: 41]
+            System.out.println("Position of first hyphen: " + firstHyphenPos);
+
+        } catch (Exception e) {
+            System.out.println("error : " + e.getMessage());
+        }
+    }
+}

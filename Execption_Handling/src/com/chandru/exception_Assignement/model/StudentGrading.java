@@ -1,0 +1,19 @@
+package com.chandru.exception_Assignement.model;
+
+public class StudentGrading {
+
+	public static void validateStudent(String name, int marks) throws InvalidMarksException {
+
+		if (name == null) {
+			throw new NullPointerException("Student name cannot be null");
+		}
+
+		if (marks < 0 || marks > 100) {
+			throw new InvalidMarksException("Marks must be between 0 and 100");
+		}
+
+		System.out.println("Student Name: " + name);
+		System.out.println("Marks: " + marks);
+		System.out.println("Grade processing successful");
+	}
+}

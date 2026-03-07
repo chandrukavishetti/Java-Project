@@ -1,0 +1,31 @@
+package com.chandru.exception_Assignement.model;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Throw_keyword {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		try {
+			System.out.println("enter the marks between 0 to 100 : ");
+			int marks = scanner.nextInt();
+			ValidateMarks(marks);
+			System.out.println("you enttered marks is : " + marks);
+		} catch (InputMismatchException ie) {
+			System.out.println("enter integer only");
+		} catch (IllegalArgumentException ie) {
+			System.out.println(ie.getMessage());
+		} finally {
+			System.out.println("finally block");
+		}
+		scanner.close();
+	}
+
+	public static void ValidateMarks(int marks) {
+		if (marks < 0 || marks > 100) {
+			throw new IllegalArgumentException("enter the marks between 0 to 100 range ");
+		}
+
+	}
+
+}

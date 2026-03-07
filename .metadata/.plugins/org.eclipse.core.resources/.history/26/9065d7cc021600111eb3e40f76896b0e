@@ -1,0 +1,10 @@
+package com.chandru.mini_project.model;
+
+public enum MarkType {
+	X, O, EMPTY;
+
+	@Override
+	public String toString() {
+		return this == EMPTY ? " " : name();
+	}
+}

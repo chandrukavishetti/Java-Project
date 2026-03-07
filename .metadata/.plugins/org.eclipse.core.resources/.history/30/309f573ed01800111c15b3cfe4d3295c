@@ -1,0 +1,22 @@
+package com.chandru.string_assignment.test;
+
+import com.chandru.string_assignment.model.SentenceFormatterModel;
+
+public class SentenceFormatterTest {
+	String sentence="java programming is FUN and powerful";
+	
+	String[] each_word=sentence.split(" ");
+	
+	int sentence_length=each_word.length;
+	
+	String trimmerdSentence=sentence.trim();
+	
+	String lowerCaseSentence=sentence.toLowerCase();
+	
+	String first_letter_capital=sentence.substring(0,1).toUpperCase()+sentence.substring(1);
+	
+	String replace=sentence.replaceAll("(?i)fun", "interesting");
+	
+	
+
+}

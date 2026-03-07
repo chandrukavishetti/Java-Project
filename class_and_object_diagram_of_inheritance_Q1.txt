@@ -1,0 +1,21 @@
+                 ┌───────────────────---------──┐
+                 │                 Account                       │
+                 ├──────────────---------───────┤
+                 │ - accountNumber:String               |
+                 │ - holderName:String                     |
+                 │ - balance:double                          |
+                 ├──────────────────---------───┤
+                 │ + deposit(amount:double):void    |
+                 │ + withdraw(amount:double):void  |
+                 │ + displayDetails():void                 | 
+                 └───────────▲─────────---------┘
+                                         │
+            ┌───────────── ┼────────────────-----┐
+            │                                                                   | 
+ ┌─────────────────────┐          ┌─────────────────────┐
+ │   SavingsAccount              │          │         CurrentAccount        │
+ ├─────────────────────┤          ├─────────────────────┤
+ │ - minBalance:double         │          │ - overdraftLimit:double      |
+ ├─────────────────────┤          ├─────────────────────┤
+ │ + withdraw():void              │          │ + withdraw():void              │
+ └─────────────────────┘          └─────────────────────┘

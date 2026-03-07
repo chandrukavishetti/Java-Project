@@ -1,0 +1,58 @@
+package com.chandru.string_assignment.model;
+
+public class PasswordValidatorModel {
+	private String input;
+	public void PasswordValidatorModel(String input) {
+		this.input=input;
+	}
+	public void passwordChecker() {
+		try {
+		if(input == null || input.trim().isEmpty()) {
+			throw new Exception("cannot be empty");
+		}
+		String trimedInput=input.trim();
+		
+		int length_of_input=trimedInput.length();
+		if(length_of_input<8) {
+			throw new Exception("the minimum length of the password is 8");
+	}
+		
+		public static boolean containsUppercase(String input) {
+			for(char ch : input.toCharArray()) {
+				if(Character.isUpperCase(ch)) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public static boolean containsLowercase(String input) {
+			for(char ch : input.toCharArray()) {
+				if(Character.isLowerCase(ch)) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public static boolean containsDigit(String input) {
+			for(char ch : input.toCharArray()) {
+				if(Character.isDigit(ch)) {
+					return true;
+				}
+			}
+		return false;
+		}
+		
+		System.out.println("password : "+input);
+		System.out.println("length valid "+(length_of_input>8)?"yes":"no");
+		System.out.println("contains the uppercase : "+);
+		System.out.println(" contains the lower case  : "+);
+		System.out.println("contains the digit  : "+);
+		System.out.println(" finally entered password is valid : "+);
+	}catch(Exception e) {
+		System.out.println("error  : " +e.getMessage());
+	}
+		
+	}
+}

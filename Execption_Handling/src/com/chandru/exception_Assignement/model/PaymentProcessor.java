@@ -1,0 +1,14 @@
+package com.chandru.exception_Assignement.model;
+
+public class PaymentProcessor {
+	public static void processPayment() {
+		try {
+			String payment = null;
+			System.out.println(payment.length());
+
+		} catch (NullPointerException ne) {
+			throw new RuntimeException("\npayment failed " + ne);
+		}
+	}
+
+}

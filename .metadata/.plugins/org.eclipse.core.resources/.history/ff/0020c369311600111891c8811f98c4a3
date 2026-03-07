@@ -1,0 +1,5 @@
+package com.chandru.mini_project.model;
+
+public class HumanPlayer {
+
+}

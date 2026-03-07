@@ -1,0 +1,32 @@
+package com.chandru.mini_project.test;
+import com.chandru.mini_project.model.Board;
+import com.chandru.mini_project.model.GameHandler;
+import com.chandru.mini_project.model.MarkType;
+
+public class Tic_Tac_Toe_Test {
+	    public static void main(String[] args) {
+	        GameHandler handler = new GameHandler();
+	        
+	        int size = handler.getValidInt("Enter board size (3 for 3x3, 4 for 4x4, etc.):");
+	        Board board = new Board(size);
+	        MarkType currentPlayer = MarkType.X;
+
+	        while (true) {
+	            board.display();
+	            int cell = handler.getCellChoice(size);
+	            
+	            if (!board.placeMark(cell, currentPlayer)) {
+	                System.out.println("Invalid Move!");
+	                continue;
+	            }
+
+	            if (board.isFull()) {
+	                System.out.println("Game Over! It's a draw.");
+	                break;
+	            }
+
+	            currentPlayer = (currentPlayer == MarkType.X) ? MarkType.O : MarkType.X;
+	        }
+	    }
+	}
+}

@@ -1,0 +1,21 @@
+package com.chandru.exception_Assignement.test;
+
+import com.chandru.exception_Assignement.model.InvalidMarksException;
+import com.chandru.exception_Assignement.model.StudentGrading;
+
+public class StudentGradingTest {
+	public static void main(String[] args) {
+		String name="chandru";
+		int marks=85;
+		try {
+			StudentGrading.ValidateMarks(name, marks);
+		}catch(InvalidMarksException e) {
+			System.out.println("invalid marks "+e.getMessage());
+		}catch(NullPointerException ne) {
+			System.out.println("Name error : "+ne.getMessage());
+		}finally {
+			System.out.println("Grading process completed");
+		}
+	}
+
+}

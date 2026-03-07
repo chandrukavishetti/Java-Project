@@ -1,0 +1,22 @@
+package com.chandru.exception_Assignement.model;
+
+public class Nested_try_catch {
+	public static void main(String[] args) {
+		try {
+			int[] array = { 1, 2, 3, 4, 5 };
+
+			try {
+				System.out.println(array[6]);
+			} catch (ArrayIndexOutOfBoundsException ae) {
+				System.out.println("accessing the out of range element " + ae.getMessage());
+			}
+			int divide = array[5] / 0;
+			System.out.println("result is : " + divide);
+
+		} catch (ArithmeticException e) {
+			System.out.println("you cannot divide number with 0 " + e.getMessage());
+
+		}
+	}
+
+}

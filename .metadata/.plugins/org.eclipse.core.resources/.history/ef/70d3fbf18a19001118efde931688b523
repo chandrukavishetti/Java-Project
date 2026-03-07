@@ -1,0 +1,20 @@
+package com.chandru.string_assignment.model;
+
+public class FileNameValidatorModel {
+	private String validator;
+	
+	public FileNameValidatorModel(String validator) {
+		this.validator=validator;
+	}
+	public void fileChecker() {
+		String trimmedvalidator=validator.trim();
+		
+		if(!trimmedvalidator.contains(".")) {
+			throw new Exception("the file name should ends wiht the dot(.) extension file");
+		}
+		int index=trimmedvalidator.indexOf(".");
+		
+		
+	}
+
+}

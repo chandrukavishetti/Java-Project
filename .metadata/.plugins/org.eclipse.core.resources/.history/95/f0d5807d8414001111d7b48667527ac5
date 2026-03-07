@@ -1,0 +1,5 @@
+package com.chandru.exception_Assignement.model;
+
+public class InvalidPasswordException {
+
+}

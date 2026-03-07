@@ -1,0 +1,14 @@
+package com.chandru.mini_project.model;
+
+public class Player {
+
+	private final MarkType mark;
+
+	public Player(MarkType mark) {
+		this.mark = mark;
+	}
+
+	public MarkType getMark() {
+		return mark;
+	}
+}

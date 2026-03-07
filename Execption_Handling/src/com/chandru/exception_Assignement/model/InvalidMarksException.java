@@ -1,0 +1,8 @@
+package com.chandru.exception_Assignement.model;
+
+public class InvalidMarksException extends Exception {
+
+	public InvalidMarksException(String message) {
+		super(message);
+	}
+}

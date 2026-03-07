@@ -1,0 +1,18 @@
+package com.chandru.string_assignment.model;
+
+public class ProductCodeParserModel {
+	
+	private String input;
+	
+	public Product(String input) {
+		this.input=input;
+	}
+	public void ProductCodeParser() {
+		try {
+			input=input.trim();
+		}catch(Exception e) {
+			System.out.println("error : "+e.getMessage());
+		}
+	}
+
+}

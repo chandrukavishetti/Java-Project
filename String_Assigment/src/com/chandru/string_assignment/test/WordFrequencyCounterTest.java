@@ -1,0 +1,27 @@
+package com.chandru.string_assignment.test;
+
+import java.util.Scanner;
+import com.chandru.string_assignment.model.WordFrequencyCounterModel;
+
+public class WordFrequencyCounterTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		try {
+			System.out.println("Enter a sentence to analyze word frequency:");
+			String input = scanner.nextLine();
+
+			if (input == null || input.trim().isEmpty()) {
+				throw new Exception("Input cannot be empty.");
+			}
+
+			WordFrequencyCounterModel counter = new WordFrequencyCounterModel(input);
+			counter.countFrequency();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			scanner.close();
+		}
+	}
+}

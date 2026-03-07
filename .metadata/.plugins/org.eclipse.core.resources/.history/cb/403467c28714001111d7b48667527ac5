@@ -1,0 +1,18 @@
+package com.chandru.exception_Assignement.test;
+
+import java.util.Scanner;
+import com.chandru.exception_Assignement.model.PassowrdValidator;
+import com.chandru.exception_Assignement.model.InvalidPasswordException;
+public class CustomExceptionTest {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		try {
+			System.out.println("Entert the password");
+			String pwd=scanner.nextLine();
+			
+			PassowrdValidator.checkPassword(pwd);
+			System.out.println("valid password");
+		}
+	}
+
+}
