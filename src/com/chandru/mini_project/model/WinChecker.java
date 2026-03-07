@@ -1,0 +1,51 @@
+package com.chandru.mini_project.model;
+
+public class WinChecker {
+
+	public boolean hasWon(Board boardObj, MarkType mark) {
+
+		MarkType[][] board = boardObj.getBoard();
+		int size = boardObj.getSize();
+
+		// Check rows
+		for (int i = 0; i < size; i++) {
+			if (checkRow(board, i, mark))
+				return true;
+			if (checkColumn(board, i, mark))
+				return true;
+		}
+
+		return checkDiagonal(board, mark, size);
+	}
+
+	private boolean checkRow(MarkType[][] board, int row, MarkType mark) {
+		for (int col = 0; col < board.length; col++) {
+			if (board[row][col] != mark)
+				return false;
+		}
+		return true;
+	}
+
+	private boolean checkColumn(MarkType[][] board, int col, MarkType mark) {
+		for (int row = 0; row < board.length; row++) {
+			if (board[row][col] != mark)
+				return false;
+		}
+		return true;
+	}
+
+	private boolean checkDiagonal(MarkType[][] board, MarkType mark, int size) {
+
+		boolean leftToRight = true;
+		boolean rightToLeft = true;
+
+		for (int i = 0; i < size; i++) {
+			if (board[i][i] != mark)
+				leftToRight = false;
+			if (board[i][size - i - 1] != mark)
+				rightToLeft = false;
+		}
+
+		return leftToRight || rightToLeft;
+	}
+}
