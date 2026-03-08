@@ -23,11 +23,11 @@ public abstract class Patient {
 		double finalAmount = charges + tax;
 
 		System.out.println("\n=======bill receipt====");
-		System.out.println("patient id : " + patientId);
-		System.out.println("patient name : " + name);
-		System.out.println("base charges : " + charges);
-		System.out.println("tax (5%) : " + tax);
-		System.out.println("Final Amount : " + finalAmount);
+		System.out.println("patient id    : " + patientId);
+		System.out.println("patient name  : " + name);
+		System.out.println("base charges  : " + charges);
+		System.out.println("tax (5%)      : " + tax);
+		System.out.println("Final Amount  : " + finalAmount);
 		System.out.println("========================");
 	}
 

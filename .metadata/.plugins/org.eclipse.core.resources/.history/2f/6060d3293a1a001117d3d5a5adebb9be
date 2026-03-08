@@ -1,0 +1,28 @@
+package com.chandru.string_assignment.model;
+
+public class RemoveConsecativeDuplicateWordsModel {
+	private String sentence;
+	public void RemoveConsecativeDuplicateWordsModel(String sentence) {
+		this.sentence=sentence;
+	}
+	public void duplicateWord() {
+		try {
+		String trimmedInput=sentence.trim();
+		String[] words=trimmedInput.split(" ");
+		
+		int count=1;
+		int visited=false;
+		for(words word:words) {
+			if(visited[word]) {
+				visited[word]==visited[(word)+1];
+				count++;
+			}
+		}
+		System.out.println([word ]" : "+count);
+		}catch(Exception e) {
+			System.out.println("error : "+e.getMessage());
+		}
+		
+	}
+
+}

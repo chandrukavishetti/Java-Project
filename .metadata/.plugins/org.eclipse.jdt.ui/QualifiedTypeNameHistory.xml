@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.array_of_objects.model.PartTimeEmployee"/>
-<fullyQualifiedTypeName name="com.chandru.array_of_objects.model.FullTimeEmployee"/>
 <fullyQualifiedTypeName name="com.chandru.inheritance.model.Account"/>
 <fullyQualifiedTypeName name="com.chandru.inheritance.model.CurrentAccount"/>
 <fullyQualifiedTypeName name="com.chandru.inheritance.model.SavingsAccount"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="com.chandru.string_assignment.model.PasswordValidatorModel"/>
 <fullyQualifiedTypeName name="com.chandru.string_assignment.model.FileNameValidatorModel"/>
+<fullyQualifiedTypeName name="com.chandru.string_assignment.model.RemoveConsecativeDuplicateWordsModel"/>
+<fullyQualifiedTypeName name="com.chandru.string_assignment.model.ReverseWordModel"/>
 </qualifiedTypeNameHistroy>

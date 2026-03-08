@@ -1,0 +1,168 @@
+package com.chandru.abstract_class.test;
+
+import java.util.Scanner;
+import com.chandru.abstract_class.model.Patient;
+import com.chandru.abstract_class.model.OutPatient;
+import com.chandru.abstract_class.model.InPatient;
+import com.chandru.abstract_class.model.EmergencyPatient;
+
+public class PatientTest {
+
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        System.out.println("Enter the number of patients:");
+        int numberOfPatients = 0;
+        
+        // Validate number of patients input
+        while (true) {
+            if (scanner.hasNextInt()) {
+                numberOfPatients = scanner.nextInt();
+                if (numberOfPatients > 0) break;
+            }
+            System.out.println("Please enter a valid number of patients (greater than 0):");
+            scanner.nextLine();
+        }
+
+        Patient[] patients = new Patient[numberOfPatients];
+
+        for (int i = 0; i < numberOfPatients; i++) {
+            System.out.println("\n--- Selecting Type for Patient " + (i + 1) + " ---");
+            System.out.println("1. In-Patient");
+            System.out.println("2. Out-Patient");
+            System.out.println("3. Emergency Patient");
+            System.out.print("Choice: ");
+
+            int choice = 0;
+            boolean validChoice = false;
+
+            // Validate the choice range
+            while (!validChoice) {
+                if (scanner.hasNextInt()) {
+                    choice = scanner.nextInt();
+                    if (choice >= 1 && choice <= 3) {
+                        validChoice = true;
+                    } else {
+                        System.out.println("Enter a number between 1 and 3:");
+                    }
+                } else {
+                    System.out.println("Invalid input! Enter an integer:");
+                    scanner.next();
+                }
+            }
+
+            // Assign the correct subclass to the array
+            switch (choice) {
+                case 1:
+                    patients[i] = createInPatient();
+                    break;
+                case 2:
+                    patients[i] = createOutPatient();
+                    break;
+                case 3:
+                    patients[i] = createEmergencyPatient();
+                    break;
+            }
+        }
+
+        System.out.println("\n===== GENERATING BILLS =====");
+        for (Patient patient : patients) {
+            if (patient != null) {
+                patient.generateBill();
+            }
+        }
+    }
+
+    // --- Validation Helper Methods ---
+
+    public static int getValidPatientId() {
+        int id = 0;
+        boolean valid = false;
+        while (!valid) {
+            System.out.print("Enter Patient ID: ");
+            if (scanner.hasNextInt()) {
+                id = scanner.nextInt();
+                if (id > 0) valid = true;
+                else System.out.println("Patient ID must be greater than 0.");
+            } else {
+                System.out.println("Invalid Input! Enter numeric value only.");
+                scanner.next();
+            }
+        }
+        return id;
+    }
+
+    public static String getValidName() {
+        String name = "";
+        boolean valid = false;
+        while (!valid) {
+            System.out.print("Enter Patient Name: ");
+            name = scanner.next();
+            if (name.matches("[a-zA-Z]+")) valid = true;
+            else System.out.println("Invalid Name! Only alphabets allowed.");
+        }
+        return name;
+    }
+
+    public static double getValidAmount(String message) {
+        double amount = 0;
+        boolean valid = false;
+        while (!valid) {
+            System.out.print(message);
+            if (scanner.hasNextDouble()) {
+                amount = scanner.nextDouble();
+                if (amount > 0) valid = true;
+                else System.out.println("Amount must be greater than 0.");
+            } else {
+                System.out.println("Invalid Input! Enter numeric value only.");
+                scanner.next();
+            }
+        }
+        return amount;
+    }
+
+    public static int getValidDays() {
+        int days = 0;
+        boolean valid = false;
+        while (!valid) {
+            System.out.print("Enter Number of Days: ");
+            if (scanner.hasNextInt()) {
+                days = scanner.nextInt();
+                if (days > 0) valid = true;
+                else System.out.println("Days must be greater than 0.");
+            } else {
+                System.out.println("Invalid Input! Enter numeric value only.");
+                scanner.next();
+            }
+        }
+        return days;
+    }
+
+    // --- Factory Methods ---
+
+    public static Patient createInPatient() {
+        System.out.println("\n--- In Patient Details ---");
+        int id = getValidPatientId();
+        String name = getValidName();
+        double roomCharge = getValidAmount("Enter Room Charge per Day: ");
+        int days = getValidDays();
+        return new InPatient(id, name, roomCharge, days);
+    }
+
+    public static Patient createOutPatient() {
+        System.out.println("\n--- Out Patient Details ---");
+        int id = getValidPatientId();
+        String name = getValidName();
+        double fee = getValidAmount("Enter Consultation Fee: ");
+        return new OutPatient(id, name, fee);
+    }
+
+    public static Patient createEmergencyPatient() {
+        System.out.println("\n--- Emergency Patient Details ---");
+        int id = getValidPatientId();
+        String name = getValidName();
+        double charge = getValidAmount("Enter Emergency Charge: ");
+        return new EmergencyPatient(id, name, charge);
+    }
+}
