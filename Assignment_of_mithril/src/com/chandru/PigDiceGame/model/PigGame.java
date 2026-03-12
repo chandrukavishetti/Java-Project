@@ -1,16 +1,20 @@
-package com.chandru.pigDiceGame;
+package com.chandru.PigDiceGame.model;
 
-import java.util.Scanner;
-import java.util.Random;
+public class PigGame {
 
-public class PigDiceGame {
-	public static void main(String[] args) {
+	private int totalScore;
+	private int turn;
+	private Dice dice;
+	private InputHandler input;
 
-		Scanner scanner = new Scanner(System.in);
-		Random random = new Random();
+	public PigGame() {
+		totalScore = 0;
+		turn = 0;
+		dice = new Dice();
+		input = new InputHandler();
+	}
 
-		int totalScore = 0;
-		int turn = 0;
+	public void startGame() {
 
 		System.out.println("Let's Play PIG!");
 		System.out.println("Reach 20 points to win.\n");
@@ -24,26 +28,23 @@ public class PigDiceGame {
 			System.out.println("TURN " + turn);
 
 			while (!turnOver) {
-				System.out.print("Roll or hold? (r/h): ");
-				String input = scanner.next().toLowerCase();
-				char choice = input.charAt(0);
 
-				if (input.length() != 1 || (choice != 'r' && choice != 'h')) {
-					System.out.println("Invalid input! Please enter only 'r' to roll or 'h' to hold.");
-					continue;
-				}
+				char choice = input.getChoice();
 
 				if (choice == 'r') {
-					int dice = random.nextInt(6) + 1;
-					System.out.println("Die: " + dice);
 
-					if (dice == 1) {
+					int diceValue = dice.roll();
+					System.out.println("Die: " + diceValue);
+
+					if (diceValue == 1) {
 						System.out.println("Turn over. No score.\n");
 						turnScore = 0;
 						turnOver = true;
-					} else {
-						turnScore += dice;
+					}
 
+					if (diceValue != 1) {
+
+						turnScore += diceValue;
 						System.out.println("Current turn score: " + turnScore);
 
 						if (totalScore + turnScore >= 20) {
@@ -52,8 +53,9 @@ public class PigDiceGame {
 							turnOver = true;
 						}
 					}
+				}
 
-				} else if (choice == 'h') {
+				if (choice == 'h') {
 					totalScore += turnScore;
 					System.out.println("Score for turn: " + turnScore);
 					System.out.println("Total score: " + totalScore + "\n");
@@ -66,6 +68,6 @@ public class PigDiceGame {
 		System.out.println("Final Score: " + totalScore);
 		System.out.println("Game over!");
 
-		scanner.close();
+		input.close();
 	}
 }
