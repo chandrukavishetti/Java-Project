@@ -1,0 +1,51 @@
+package com.chandru.assignment_test.model;
+
+public class StaffValidator {
+	public static void validateId(int id) {
+		if (id <= 0) {
+			throw new IllegalArgumentException("Invalid ID");
+		}
+	}
+
+	public static void validateName(String name) {
+		if (name == null || name.trim().isEmpty()) {
+			throw new IllegalArgumentException("Name cannot be empty.");
+		}
+		
+		if (!name.matches("[a-zA-Z\\s]+")) {
+			throw new IllegalArgumentException("Name must contain only letters (no numbers or symbols).");
+		}
+	}
+
+	public static void validateDepartment(String department) {
+		if (!department.matches("[a-zA-Z\\s]+")) {
+			throw new IllegalArgumentException(
+					"Name cannot contain numbers or special characters. Please use only letters.");
+		}
+		if (department == null || department.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid department ");
+
+		}
+	}
+
+	public static void validateSpecialization(String specialization) {
+		if (!specialization.matches("[a-zA-Z\\s]+")) {
+			throw new IllegalArgumentException(
+					"Name cannot contain numbers or special characters. Please use only letters.");
+		}
+		if (specialization == null || specialization.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid specialization");
+		}
+	}
+
+	public static void validateShift(String shift) {
+		if (shift == null || shift.trim().isEmpty()) {
+			throw new IllegalArgumentException("Shift cannot be empty.");
+		}
+
+		if (!shift.trim().matches("[1-3]")) {
+			throw new IllegalArgumentException("Invalid shift! Please enter only 1, 2, or 3.");
+		}
+	}
+
+}

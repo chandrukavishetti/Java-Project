@@ -1,0 +1,54 @@
+package com.chandru.assignment_test.model;
+
+import java.util.Scanner;
+
+public class VehicleInputHandler {
+
+	private Scanner scanner = new Scanner(System.in);
+
+	public String getString(String message) {
+		while (true) {
+			try {
+				System.out.print(message);
+				String input = scanner.nextLine();
+				VehicleValidator.ownerNameValidator(input);
+				return input;
+			} catch (IllegalArgumentException e) {
+				System.out.println("Error : " + e.getMessage());
+			}
+		}
+	}
+
+	public int getInt(String message) {
+		while (true) {
+			try {
+				System.out.print(message);
+				int input = Integer.parseInt(scanner.nextLine());
+
+				VehicleValidator.registrationValidator(input);
+
+				return input;
+
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid number format. Please enter digits only.");
+			} catch (IllegalArgumentException e) {
+				System.out.println("Error : " + e.getMessage());
+			}
+		}
+	}
+
+	public double getDouble(String message) {
+		while (true) {
+			try {
+				System.out.print(message);
+				double charge = Double.parseDouble(scanner.nextLine());
+				VehicleValidator.chargeValidator(charge);
+				return charge;
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid number. Try again.");
+			} catch (IllegalArgumentException e) {
+				System.out.println("Error : " + e.getMessage());
+			}
+		}
+	}
+}

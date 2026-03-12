@@ -1,0 +1,20 @@
+package com.chandru.assignment_test.model;
+
+public class Clothings extends Product {
+
+	private String ClothingBrandName;
+
+	public String Clothings(int id, Stirng productName, double basePrice, String ClothingBrandName) {
+		super(id, name, basePrice);
+		StudentValidator.validateName(ClothingBrandName);
+		this.ClothingBrandName = ClothingBrandName;
+	}
+
+	public void displayStudents() {
+		System.out.println("id : " + getProductId);
+		System.out.println("product name : " + getProductName);
+		System.out.println("product base price : " + getProductPrice);
+		System.out.println("clothing brand name : " + clothingBrandtName);
+	}
+
+}

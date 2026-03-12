@@ -1,0 +1,5 @@
+package com.chandru.abstract_interface_exception.model;
+
+public class InvalidLoanException {
+
+}

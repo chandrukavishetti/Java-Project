@@ -1,0 +1,15 @@
+package com.chandru.abstract_interface_exception.model;
+
+public class LoanValidator {
+
+	public void validate(double amount, double interest) throws InvalidLoanException {
+
+		if (amount <= 0) {
+			throw new InvalidLoanException("Loan amount must be positive");
+		}
+
+		if (interest <= 0) {
+			throw new InvalidLoanException("Interest rate must be positive");
+		}
+	}
+}

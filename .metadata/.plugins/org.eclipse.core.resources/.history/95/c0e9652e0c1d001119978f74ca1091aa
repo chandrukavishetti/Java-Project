@@ -1,0 +1,90 @@
+package com.chandru.assignment_test.test;
+
+import com.chandru.assignment_test.model.Doctor;
+import com.chandru.assignment_test.model.StaffInputHandler;
+import com.chandru.assignment_test.model.Nurse;
+import com.chandru.assignment_test.model.Staff;
+import com.chandru.assignment_test.model.StaffRepository;
+import com.chandru.assignment_test.model.StaffService;
+
+//import com.chandru.assignment_test.model.Doctor;
+//import com.chandru.assignment_test.model.InputHandler;
+//import com.chandru.assignment_test.model.Nurse;
+//import com.chandru.assignment_test.model.Staff;
+//import com.chandru.assignment_test.model.StaffRepository;
+//import com.chandru.assignment_test.model.StaffService;
+
+public class StaffTest {
+
+	public static void main(String[] args) {
+
+		StaffInputHandler input = new StaffInputHandler();
+
+		StaffRepository repository = new StaffRepository(10);
+
+		StaffService service = new StaffService(repository);
+
+		boolean running = true;
+
+		while (running) {
+
+			System.out.println("\nHospital Staff System");
+			System.out.println("1 Add Doctor");
+			System.out.println("2 Add Nurse");
+			System.out.println("3 Display Staff");
+			System.out.println("4 Exit");
+
+			int choice = input.getInt("Enter choice: ");
+
+			try {
+
+				switch (choice) {
+
+				case 1:
+
+					int dId = input.getInt("Enter Doctor ID: ");
+					String dName = input.getString("Enter Name: ");
+					String dDept = input.getString("Enter Department: ");
+					String spec = input.getString("Enter Specialization: ");
+
+					Staff doctor = new Doctor(dId, dName, dDept, spec);
+					service.addStaff(doctor);
+
+					break;
+
+				case 2:
+
+					int nId = input.getInt("Enter Nurse ID: ");
+					String nName = input.getString("Enter Name: ");
+					String nDept = input.getString("Enter Department name : ");
+					String shift = input.getString("Enter Shift: ");
+
+					Staff nurse = new Nurse(nId, nName, nDept, shift);
+					service.addStaff(nurse);
+
+					break;
+
+				case 3:
+
+					service.displayAllStaff();
+					break;
+
+				case 4:
+
+					running = false;
+					System.out.println("Program Ended");
+					break;
+
+				default:
+
+					System.out.println("Invalid choice");
+
+				}
+
+			} catch (IllegalArgumentException e) {
+
+				System.out.println("Error: " + e.getMessage());
+			}
+		}
+	}
+}

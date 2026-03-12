@@ -1,0 +1,31 @@
+package com.chandru.assignment_test.model;
+
+public class StaffValidator {
+	public static void validateId(int id) {
+		if(id<=0) {
+			throw new IllegalArgumentException("Invalid ID");
+		}
+	}
+	public static void validateName(String name) {
+		if(name==null||name.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid name ");
+		}
+	}
+	public static void validateDepartment(String depatment) {
+		if(department==null|| department.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid department ");
+			
+		}
+	}
+	public static void validateSpecialization(String specialization) {
+		if(specialization==null || specialization.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid specialization");
+		}
+	}
+	public static void validateShift(String shift) {
+		if(shift == null || shift.trim().isEmpty()) {
+			throw new IllegalArgumentException("invalid shift");
+		}
+	}
+
+}

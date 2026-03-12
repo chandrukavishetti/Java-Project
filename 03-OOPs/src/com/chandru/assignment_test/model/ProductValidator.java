@@ -1,0 +1,29 @@
+package com.chandru.assignment_test.model;
+
+public class ProductValidator {
+
+	public static void productIdValidator(int id) {
+
+		if (id <= 0) {
+			throw new IllegalArgumentException("Product ID must be greater than zero");
+		}
+	}
+
+	public static void productNameValidator(String productName) {
+
+		if (productName == null || productName.trim().isEmpty()) {
+			throw new IllegalArgumentException("Product name cannot be empty");
+		}
+
+		if (!productName.matches("[a-zA-Z\\s ]+")) {
+			throw new IllegalArgumentException("Product name must contain only alphabets");
+		}
+	}
+
+	public static void productPriceValidator(double price) {
+
+		if (price <= 0) {
+			throw new IllegalArgumentException("Price must be greater than zero");
+		}
+	}
+}

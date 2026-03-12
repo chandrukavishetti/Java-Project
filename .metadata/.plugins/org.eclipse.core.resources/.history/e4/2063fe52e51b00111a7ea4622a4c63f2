@@ -1,0 +1,61 @@
+package com.chandru.io_stream.test;
+
+import java.util.Scanner;
+import com.chandru.io_stream.model.StudentCRUD;
+
+public class I_O_StreamTest {
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner sc = new Scanner(System.in);
+		StudentCRUD crud = new StudentCRUD();
+
+		while (true) {
+
+			System.out.println("\n1 Add Student");
+			System.out.println("2 View Students");
+			System.out.println("3 Update Student");
+			System.out.println("4 Delete Student");
+			System.out.println("5 Exit");
+
+			int choice = sc.nextInt();
+
+			switch (choice) {
+
+			case 1:
+				System.out.println("Enter id name marks");
+				int id = sc.nextInt();
+				String name = sc.next();
+				int marks = sc.nextInt();
+
+				crud.addStudent(id + "," + name + "," + marks);
+				break;
+
+			case 2:
+				crud.readStudents();
+				break;
+
+			case 3:
+				System.out.println("Enter id to update");
+				int uid = sc.nextInt();
+
+				System.out.println("Enter new name and marks");
+				String uname = sc.next();
+				int umarks = sc.nextInt();
+
+				crud.updateStudent(uid, uid + "," + uname + "," + umarks);
+				break;
+
+			case 4:
+				System.out.println("Enter id to delete");
+				int did = sc.nextInt();
+
+				crud.deleteStudent(did);
+				break;
+
+			case 5:
+				System.exit(0);
+			}
+		}
+	}
+}

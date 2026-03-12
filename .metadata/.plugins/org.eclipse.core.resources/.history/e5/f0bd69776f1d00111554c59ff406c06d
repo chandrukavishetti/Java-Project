@@ -1,0 +1,33 @@
+package com.chandru.assignment_test.model;
+
+public abstract class Product {
+
+    private int id;
+    private String productName;
+    private double basePrice;
+
+    public Product(int id, String productName, double basePrice) {
+
+        ProductValidator.productIdValidator(id);
+        ProductValidator.productNameValidator(productName);
+        ProductValidator.productPriceValidator(basePrice);
+
+        this.id = id;
+        this.productName = productName;
+        this.basePrice = basePrice;
+    }
+
+    public int getProductId() {
+        return id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public double getProductPrice() {
+        return basePrice;
+    }
+
+    public abstract void displayProduct();
+}

@@ -1,0 +1,33 @@
+package com.chandru.assignment_test.model;
+
+public abstract class Vehicle {
+
+	private int registrationNumber;
+	private String ownerName;
+	private double baseUsageCharge;
+
+	public Vehicle(int registrationNumber, String ownerName, double baseUsageCharge) {
+
+		VehicleValidator.registrationValidator(registrationNumber);
+		VehicleValidator.ownerNameValidator(ownerName);
+		VehicleValidator.chargeValidator(baseUsageCharge);
+
+		this.registrationNumber = registrationNumber;
+		this.ownerName = ownerName;
+		this.baseUsageCharge = baseUsageCharge;
+	}
+
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public double getBaseUsageCharge() {
+		return baseUsageCharge;
+	}
+
+	public abstract void displayVehicle();
+}

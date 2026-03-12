@@ -1,0 +1,60 @@
+               ----------------------
+                        Staff         
+                ----------------------
+                | - id : int                   
+                | - name : String        
+                | - department : String|
+                ----------------------
+                |           
+                | + Staff(id,name,dep) 
+                | + displayInfo()      
+                | + getters/setters    
+                ---------------------
+                           |^
+              ---------------------------
+              |                         |
+     ------------------       -----------------------
+     |      Doctor    |     |       Nurse      |
+     ------------------        --------------------
+     | - specialization |     | - shift          |
+     ------------------        ----------------------
+     |       |               |       |
+     | + Doctor(...)    |     | + Nurse(...)     |
+     | + displayInfo() |     | + displayInfo()  |
+     ------------------          ---------------------
+
+
+
+
+
+        Staff Array
+      ------------------
+
+        staff[0]
+          |
+       Doctor
+       -----------------
+       id = 101
+       name = "Dr Ravi"
+       department = "Cardiology"
+       specialization = "Heart Specialist"
+
+
+        staff[1]
+          |
+        Nurse
+       -----------------
+       id = 201
+       name = "Anita"
+       department = "Emergency"
+       shift = "Night"
+
+
+        staff[2]
+          |
+        Doctor
+       -----------------
+       id = 102
+       name = "Dr Kumar"
+       department = "Neurology"
+       specialization = "Brain Surgeon"
