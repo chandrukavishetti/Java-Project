@@ -1,0 +1,89 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "o6_jCOrplsus1M_jeZLo6",
+      "type": "line",
+      "x": 489,
+      "y": 30.33333969116211,
+      "width": 308,
+      "height": 1,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 40,
+      "groupIds": [],
+      "frameId": "LG6S2h79i7fEtqFJnUVrz",
+      "index": "Zz",
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1805727976,
+      "version": 53,
+      "versionNonce": 939330968,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1773384321769,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          308,
+          1
+        ]
+      ],
+      "startBinding": null,
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": null,
+      "polygon": false
+    },
+    {
+      "id": "LG6S2h79i7fEtqFJnUVrz",
+      "type": "frame",
+      "x": 488,
+      "y": -7.666660308837891,
+      "width": 297,
+      "height": 128,
+      "angle": 0,
+      "strokeColor": "#bbb",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a0",
+      "roundness": null,
+      "seed": 709732248,
+      "version": 79,
+      "versionNonce": 240833256,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1773384308070,
+      "link": null,
+      "locked": false,
+      "name": null
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff",
+    "lockedMultiSelections": {}
+  },
+  "files": {}
+}

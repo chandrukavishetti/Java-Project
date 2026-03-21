@@ -8,9 +8,6 @@ public abstract class Loan {
 	protected double interestRate;
 
 	public Loan(int loanId, String borrowerName, double principal, double interestRate) {
-
-		System.out.println("Loan constructor called");
-
 		this.loanId = loanId;
 		this.borrowerName = borrowerName;
 		this.principal = principal;

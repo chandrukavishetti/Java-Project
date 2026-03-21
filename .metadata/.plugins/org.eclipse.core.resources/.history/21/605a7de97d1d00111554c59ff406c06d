@@ -1,6 +1,0 @@
-package com.chandru.abstract_interface_exception.model;
-
-public interface LoanEligibility {
-
-	boolean checkEligibility(double amount);
-}

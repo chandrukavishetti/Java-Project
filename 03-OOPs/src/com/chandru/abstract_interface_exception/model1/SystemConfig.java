@@ -5,7 +5,7 @@ public class SystemConfig {
 	public static String bankName;
 
 	static {
-		bankName = "Chandru Finance Bank";
+		bankName = "Chandrashekhar Finance Bank";
 		System.out.println("System Configuration Loaded for: " + bankName);
 	}
 }
