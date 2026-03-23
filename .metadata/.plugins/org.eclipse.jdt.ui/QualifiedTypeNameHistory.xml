@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.SavingsAccount"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.CurrentAccount"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.AccountValidator"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.AccountRepository"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.AccountService"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.AccountInputHandler"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.ScholarshipStudent"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.Student"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.StudentRepository"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.chandru.practice.model.Playable"/>
 <fullyQualifiedTypeName name="com.chandru.practice.model.Guitar"/>
 <fullyQualifiedTypeName name="com.chandru.practice.model.Piano"/>
+<fullyQualifiedTypeName name="java.util.ConcurrentModificationException"/>
+<fullyQualifiedTypeName name="com.chandru.practice.model.Drawable"/>
+<fullyQualifiedTypeName name="com.chandru.practice.model.Resizable"/>
+<fullyQualifiedTypeName name="com.chandru.practice.model.Square"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

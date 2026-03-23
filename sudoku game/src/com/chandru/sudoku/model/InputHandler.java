@@ -14,7 +14,6 @@ public class InputHandler {
 		System.out.print("Enter row (1-9): ");
 
 		if (!scanner.hasNextInt()) {
-
 			String invalidInput = scanner.next();
 			throw new InvalidInputException("'" + invalidInput + "' is not a number");
 		}
@@ -67,19 +66,18 @@ public class InputHandler {
 	}
 
 	public int readMenuChoice(int min, int max) throws InvalidInputException {
-	    // 1. Check if the input is even a number
-	    if (!scanner.hasNextInt()) {
-	        String invalid = scanner.next(); // Consume the alphabet/garbage
-	        throw new InvalidInputException("'" + invalid + "' is not a valid number.");
-	    }
 
-	    int choice = scanner.nextInt();
+		if (!scanner.hasNextInt()) {
+			String invalid = scanner.next();
+			throw new InvalidInputException("'" + invalid + "' is not a valid number.");
+		}
 
-	    // 2. Check if the number is within the allowed range (e.g., 1 or 2)
-	    if (choice < min || choice > max) {
-	        throw new InvalidInputException("Please enter a choice between " + min + " and " + max + ".");
-	    }
+		int choice = scanner.nextInt();
 
-	    return choice;
+		if (choice < min || choice > max) {
+			throw new InvalidInputException("Please enter a choice between " + min + " and " + max + ".");
+		}
+
+		return choice;
 	}
 }

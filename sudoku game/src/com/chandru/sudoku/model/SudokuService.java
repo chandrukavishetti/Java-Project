@@ -2,42 +2,46 @@ package com.chandru.sudoku.model;
 
 public class SudokuService {
 
-    private RowValidator rowValidator;
-    private ColumnValidator columnValidator;
-    private BoxValidator boxValidator;
+	private RowValidator rowValidator;
+	private ColumnValidator columnValidator;
+	private BoxValidator boxValidator;
 
-    public SudokuService() {
+	public SudokuService() {
 
-        rowValidator = new RowValidator();
-        columnValidator = new ColumnValidator();
-        boxValidator = new BoxValidator();
-    }
+		rowValidator = new RowValidator();
+		columnValidator = new ColumnValidator();
+		boxValidator = new BoxValidator();
+	}
 
-    public void placeNumber(SudokuBoard board, int row, int col, int number)
-            throws InvalidInputException {
+	public boolean isValidMove(int[][] grid, int row, int col, int number) {
+		return rowValidator.validate(grid, row, number) && columnValidator.validate(grid, col, number)
+				&& boxValidator.validate(grid, row, col, number);
+	}
 
-        int[][] grid = board.getGrid();
+	public void placeNumber(SudokuBoard board, int row, int col, int number) throws InvalidInputException {
 
-        if (grid[row][col] != 0) {
-            throw new InvalidInputException("Cell already filled");
-        }
+		int[][] grid = board.getGrid();
 
-        boolean rowValid = rowValidator.validate(grid, row, number);
-        boolean colValid = columnValidator.validate(grid, col, number);
-        boolean boxValid = boxValidator.validate(grid, row, col, number);
+		if (grid[row][col] != 0) {
+			throw new InvalidInputException("Cell already filled");
+		}
 
-        if (!rowValid) {
-            throw new InvalidInputException("Number already exists in row");
-        }
+		boolean rowValid = rowValidator.validate(grid, row, number);
+		boolean colValid = columnValidator.validate(grid, col, number);
+		boolean boxValid = boxValidator.validate(grid, row, col, number);
 
-        if (!colValid) {
-            throw new InvalidInputException("Number already exists in column");
-        }
+		if (!rowValid) {
+			throw new InvalidInputException("Number already exists in row");
+		}
 
-        if (!boxValid) {
-            throw new InvalidInputException("Number already exists in 3x3 box");
-        }
+		if (!colValid) {
+			throw new InvalidInputException("Number already exists in column");
+		}
 
-        board.setValue(row, col, number);
-    }
+		if (!boxValid) {
+			throw new InvalidInputException("Number already exists in 3x3 box");
+		}
+
+		board.setValue(row, col, number);
+	}
 }

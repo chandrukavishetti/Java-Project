@@ -1,31 +1,64 @@
 package com.chandru.sudoku.model;
 
+import java.util.Random;
+
 public class BoardFactory {
+	private SudokuService service = new SudokuService();
+	private Random random = new Random();
 
-    public SudokuBoard createEasyBoard() {
+	public SudokuBoard createBoard(int fillCount) {
+		int[][] grid = new int[9][9];
 
-        int[][] easyGrid = {
+		// Fill the board completely with a valid solution
+		fillBoard(grid);
 
-            {5,3,0,6,7,8,9,1,2},
-            {6,7,2,1,9,5,3,4,8},
-            {1,9,8,3,4,2,5,6,7},
+		// Remove digits until we hit the target count
+		removeDigits(grid, 81 - fillCount);
 
-            {8,5,9,7,6,1,4,2,3},
-            {4,2,6,8,5,3,7,9,1},
-            {7,1,3,9,2,4,8,5,6},
+		return new SudokuBoard(grid);
+	}
 
-            {9,6,1,5,3,7,2,8,4},
-            {2,8,7,4,1,9,6,3,5},
-            {3,4,5,2,8,6,1,7,9}
-        };
+	private boolean fillBoard(int[][] grid) {
+		for (int row = 0; row < 9; row++) {
+			for (int col = 0; col < 9; col++) {
+				if (grid[row][col] == 0) {
 
-        return new SudokuBoard(easyGrid);
-    }
+					int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+					shuffleArray(numbers);
 
-    public SudokuBoard createDifficultBoard() {
+					for (int num : numbers) {
+						if (service.isValidMove(grid, row, col, num)) {
+							grid[row][col] = num;
+							if (fillBoard(grid))
+								return true;
+							grid[row][col] = 0;
+						}
+					}
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
-        int[][] grid = new int[9][9];
+	private void removeDigits(int[][] grid, int countToRemove) {
+		int removed = 0;
+		while (removed < countToRemove) {
+			int r = random.nextInt(9);
+			int c = random.nextInt(9);
+			if (grid[r][c] != 0) {
+				grid[r][c] = 0;
+				removed++;
+			}
+		}
+	}
 
-        return new SudokuBoard(grid);
-    }
+	private void shuffleArray(int[] array) {
+		for (int i = array.length - 1; i > 0; i--) {
+			int index = random.nextInt(i + 1);
+			int a = array[index];
+			array[index] = array[i];
+			array[i] = a;
+		}
+	}
 }

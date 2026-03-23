@@ -5,23 +5,20 @@ public class Menu {
 	private InputHandler inputHandler;
 
 	public Menu() {
-		// Initialize the handler which contains our scanner logic
+
 		this.inputHandler = new InputHandler();
 	}
 
 	public int chooseDifficulty() {
-		while (true) { // Loop until we get valid input
+		while (true) {
 			try {
 				System.out.println("==== Sudoku Game ====");
-				System.out.println("1. Easy");
-				System.out.println("2. Difficult");
+				System.out.println("1. Easy (60 filled)");
+				System.out.println("2. Medium (40 filled)");
+				System.out.println("3. Hard (20 filled)");
 				System.out.print("Choose option: ");
-
-				// Use the handler to validate everything
-				return inputHandler.readMenuChoice(1, 2);
-
+				return inputHandler.readMenuChoice(1, 3);
 			} catch (InvalidInputException e) {
-				// This catches alphabets, negatives, and numbers like 5
 				System.out.println("Error: " + e.getMessage());
 			}
 		}
