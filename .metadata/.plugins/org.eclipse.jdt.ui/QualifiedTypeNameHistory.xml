@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.ProductValidator"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.Electronics"/>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.Clothings"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.Vehicle"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.Car"/>
 <fullyQualifiedTypeName name="com.chandru.assignment_test.model.Bike"/>
@@ -58,6 +55,9 @@
 <fullyQualifiedTypeName name="java.util.function.Supplier"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.function.Function"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.chandru.Stream_API_Assignment_filter.Student"/>
+<fullyQualifiedTypeName name="java.util.stream.Collector"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 </qualifiedTypeNameHistroy>
