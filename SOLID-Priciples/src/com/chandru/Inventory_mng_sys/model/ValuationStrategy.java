@@ -5,3 +5,5 @@ import java.util.List;
 public interface ValuationStrategy {
     double calculateValue(List<Product> products);
 }
+
+//OCP
