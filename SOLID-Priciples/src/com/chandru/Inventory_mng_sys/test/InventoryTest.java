@@ -17,7 +17,7 @@ public class InventoryTest {
 		InventoryService service = new InventoryService(reorderService);
 
 		while (true) {
-			System.out.println("\n1. Add Product\n2. Add Stock\n3. Remove Stock\n4. Show\n5. Value\n6. Exit");
+			System.out.println("\n1. Add Product\n2. Add Stock\n3. Remove Stock\n4. Show all stocks\n5. Exit");
 
 			int choice = input.getInt("Enter choice: ");
 
@@ -46,14 +46,12 @@ public class InventoryTest {
 
 			case 4:
 				service.showProducts();
+
+				double value = service.calculateValue(new FIFOValuation());
+				System.out.println("Total amount is : " + value);
 				break;
 
 			case 5:
-				double value = service.calculateValue(new FIFOValuation());
-				System.out.println("Total value: " + value);
-				break;
-
-			case 6:
 				System.out.println("Exiting...");
 				return;
 

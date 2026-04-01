@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.assignment_test.model.VehicleValidator"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.Loan"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.CarLoan"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.EducationLoan"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Student_Result.model.InputHandler"/>
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Student_Result.model.Student"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
 </qualifiedTypeNameHistroy>

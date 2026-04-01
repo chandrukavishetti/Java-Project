@@ -8,28 +8,70 @@ public class InputHandler {
 
 	public int getInt(String msg) {
 		while (true) {
+			System.out.print(msg);
+			String input = sc.nextLine();
+
+			String sanitizedInput = input.replaceAll("\\s+", "");
+
 			try {
-				System.out.print(msg);
-				return Integer.parseInt(sc.nextLine());
+
+				if (!sanitizedInput.matches("^[0-9]+$")) {
+					throw new Exception("Contains invalid characters");
+				}
+
+				int number = Integer.parseInt(sanitizedInput);
+
+				if (number <= 0) {
+					System.out.println("Please enter a positive number greater than zero.");
+				} else {
+					return number;
+				}
 			} catch (Exception e) {
-				System.out.println("Invalid number! Try again.");
+				System.out.println("Invalid input! Please enter a valid positive whole number.");
 			}
 		}
 	}
 
 	public double getDouble(String msg) {
+
 		while (true) {
+			System.out.print(msg);
+			String input = sc.nextLine();
+
+			String sanitizedInput = input.replaceAll("\\s+", "");
+
 			try {
-				System.out.print(msg);
-				return Double.parseDouble(sc.nextLine());
+				if (!sanitizedInput.matches("^[0-9]+$")) {
+					throw new Exception("Contains invalid characters");
+				}
+
+				double number = Double.parseDouble(sanitizedInput);
+
+				if (number <= 0) {
+					System.out.println("Please enter a positive number greater than zero.");
+				} else {
+					return number;
+				}
 			} catch (Exception e) {
-				System.out.println("Invalid input! Try again.");
+				System.out.println("Invalid input! Please enter a valid positive whole number.");
 			}
 		}
 	}
 
 	public String getString(String msg) {
-		System.out.print(msg);
-		return sc.nextLine();
+		String input = "";
+		boolean isValid = false;
+
+		while (!isValid) {
+			System.out.print(msg);
+			input = sc.nextLine().trim();
+
+			if (input.matches("^[a-zA-Z]+$")) {
+				isValid = true;
+			} else {
+				System.out.println("Invalid input. Please enter letters only (no numbers or special characters).");
+			}
+		}
+		return input;
 	}
 }

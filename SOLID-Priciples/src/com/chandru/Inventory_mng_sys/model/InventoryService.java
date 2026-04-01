@@ -44,13 +44,13 @@ public class InventoryService {
 	}
 
 	public void showProducts() {
-		inventory.values().forEach(p -> System.out.println(p.getName() + " | Qty: " + p.getQuantity()));
+		inventory.values().forEach(p -> System.out.println("Product name is : " + p.getName() + " | Quantity: "
+				+ p.getQuantity() + " | price of product is : " + p.getPrice()));
 	}
 
 	public double calculateValue(ValuationStrategy strategy) {
 		return strategy.calculateValue(new ArrayList<>(inventory.values()));
 	}
 }
-
 
 //DIP
