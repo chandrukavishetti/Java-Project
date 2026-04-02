@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.Loan"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.CarLoan"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.EducationLoan"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.HomeLoan"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.InvalidLoanException"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanEligibility"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanValidator"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.SystemConfig"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanService"/>
-<fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="com.chandru.comparator_comparable_assignment.model.Movie"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model3.OrderConfig"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model3.OrderServiceSystem"/>
@@ -44,7 +40,6 @@
 <fullyQualifiedTypeName name="java.util.function.Predicate"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="java.util.function.Supplier"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.function.Function"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream"/>
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Assignment_filter.Student"/>
@@ -58,6 +53,11 @@
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Employee_mng.model.InputHandler"/>
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Student_Result.model.InputHandler"/>
 <fullyQualifiedTypeName name="com.chandru.Stream_API_Student_Result.model.Student"/>
-<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="com.chandru.Stream_API_Library_Book.model.InputHandler"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.chandru.Stream_API_Library_Book.model.Book"/>
 </qualifiedTypeNameHistroy>
