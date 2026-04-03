@@ -2,7 +2,7 @@ package com.chandru.Inventory_mng_sys.model;
 
 import java.util.List;
 
-public class FIFOValuation implements ValuationStrategy {
+public class Valuation implements ValuationStrategy {
 
     public double calculateValue(List<Product> products) {
         double total = 0;

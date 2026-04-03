@@ -47,7 +47,7 @@ public class InventoryTest {
 			case 4:
 				service.showProducts();
 
-				double value = service.calculateValue(new FIFOValuation());
+				double value = service.calculateValue(new Valuation());
 				System.out.println("Total amount is : " + value);
 				break;
 

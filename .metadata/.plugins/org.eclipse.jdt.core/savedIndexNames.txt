@@ -24,7 +24,6 @@ INDEX VERSION 1.131+D:\monocept\.metadata\.plugins\org.eclipse.jdt.core
 3890964253.index
 769398222.index
 512056584.index
-1391824217.index
 3250281227.index
 1704956129.index
 3211918656.index
