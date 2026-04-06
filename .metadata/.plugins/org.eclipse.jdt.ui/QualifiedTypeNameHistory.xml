@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.HomeLoan"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.InvalidLoanException"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanEligibility"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanValidator"/>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.SystemConfig"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model.LoanService"/>
 <fullyQualifiedTypeName name="com.chandru.comparator_comparable_assignment.model.Movie"/>
 <fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model3.OrderConfig"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.Player"/>
+<fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.InputValidator"/>
+<fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.Board"/>
+<fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.MarkType"/>
+<fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.Game"/>
 </qualifiedTypeNameHistroy>
