@@ -2,6 +2,7 @@ package com.chandru.tic_tac_toe_using_Facade.test;
 
 import java.util.Scanner;
 import com.chandru.tic_tac_toe_using_Facade.model.Game;
+import com.chandru.tic_tac_toe_using_Facade.model.InputValidator;
 
 public class TicTacToeFacade {
 
@@ -41,8 +42,7 @@ public class TicTacToeFacade {
 			initializeGame();
 			startGame();
 
-			System.out.println("Do you want to play again? (yes/no): ");
-			choice = scanner.nextLine();
+			choice = game.getValidator().getReplayChoice();
 
 		} while (choice.equalsIgnoreCase("yes"));
 

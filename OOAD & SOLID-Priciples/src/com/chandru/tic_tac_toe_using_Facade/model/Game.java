@@ -10,6 +10,10 @@ public class Game {
 	private final WinChecker winChecker;
 	private final InputValidator validator;
 
+	public InputValidator getValidator() {
+		return validator;
+	}
+
 	public Game(Scanner scanner) {
 
 		validator = new InputValidator(scanner);
