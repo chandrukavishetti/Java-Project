@@ -20,7 +20,7 @@ public class InsuranceClaimSystem {
 				continue;
 			}
 
-            // Strict Digit-Only Validation
+			// Strict Digit-Only Validation
 			boolean onlyDigits = true;
 			for (int i = 0; i < policyNumber.length(); i++) {
 				char ch = policyNumber.charAt(i);
@@ -35,12 +35,12 @@ public class InsuranceClaimSystem {
 				continue;
 			}
 
-            // Strict leading zero check for policy number
-            if (policyNumber.length() > 1 && policyNumber.startsWith("0")) {
-                System.out.println("Invalid policy number. Cannot start with a leading zero.");
-                continue;
-            }
-            
+			// Strict leading zero check for policy number
+			if (policyNumber.length() > 1 && policyNumber.startsWith("0")) {
+				System.out.println("Invalid policy number. Cannot start with a leading zero.");
+				continue;
+			}
+
 			break;
 		}
 
