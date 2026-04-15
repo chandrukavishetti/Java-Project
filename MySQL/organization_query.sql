@@ -15,6 +15,7 @@ select * from emp where sal between 2000 and 5000;
 
 -- #5. Display all the employees whose commission is null
 select * from emp where comm is null;
+select deptno,count(ename)  from emp where comm is null group by deptno ;
 
 -- #6. Display emp_name,salary,comission,ctc(calculated column)
 
@@ -165,8 +166,31 @@ select r.region_name,c.country_name,count(l.location_id) number_of_location from
 --  
 --  
 -- Which countries are located in the "Asia" region?
+select c.country_name,r.region_name from countries c left join regions r on r.region_id=c.region_id where r.region_name in('Asia');
+ 
 -- List the names of all countries in the "Americas" region that have at least one location.
+SELECT 
+    c.country_name
+FROM 
+    countries c
+JOIN 
+    regions r 
+ON 
+    r.region_id = c.region_id
+JOIN 
+    locations l 
+ON 
+    l.country_id = c.country_id
+WHERE 
+    r.region_name = 'Americas'
+GROUP BY 
+    c.country_name
+HAVING 
+    COUNT(l.location_id) > 0;
+
 -- Find all cities in the "Europe" region along with their respective country names.
+select l.city from locations l left join countries c on l.country_id=c.country_id join regions r on c.country_id=r.region_id where r.region_name='Europe' group by l.city;
+
 -- How many countries are in the "Middle East and Asia" region?
 -- List all regions along with the number of countries in each region.
 -- Which countries do not have any associated locations?
