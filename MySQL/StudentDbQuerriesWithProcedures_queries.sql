@@ -521,7 +521,6 @@ CREATE PROCEDURE insert_new_subject(
 )
 BEGIN
     DECLARE sub_count INT;
-
     -- Check if subject already exists for that student
     SELECT COUNT(*) INTO sub_count
     FROM Subjects
@@ -549,10 +548,97 @@ SET @sub = 'Mathematics';
 CALL insert_new_subject(1, @sub);
 SELECT @sub;
 
--- 13. Create a procedure that accepts student and profile details as input and inserts 
--- them into the students and profile tables. Ensure the student ID from the first insert is reused for the profile record. 
+-- 13. Create a procedure that accepts student and profile details as input and inserts them into
+-- the students and profile tables.Ensure the student ID from the first insert is reused for the profile record.
+delimiter $$
+create procedure insert_student_with_profile(
+in p_rollnumber int,
+in p_name varchar(100),
+in p_age int,
+in p_percentage varchar(100),
+in p_city varchar (100),
+in p_mobileno varchar(20)
+)
+begin 
+declare new_student_id int;
+select ifnull(max(studentid),0)+1 into new_student_id from student;
+insert into student(studentid,rollnumber,name,age,percentage) 
+values (new_student_id,p_rollnumber,p_name,p_age,p_percentage);
+
+insert into profile(studentid,city,mobileno)
+values (new_student_id,p_city,p_mobileno); 
+end $$
+delimiter ;
+
+
+CALL insert_student_with_profile(
+    117, 'Pruthviraj', 21, 85.00,
+    'Bangalore', '9876543211'
+);
+
 -- 14. Design an audit table percentage_audit(student_id, old_percentage, 
 -- new_percentage, updated_at) and create a procedure that updates a student’s 
 -- percentage and logs the old and new value into the audit table. 
+
+CREATE TABLE percentage_audit (
+    student_id INT,
+    old_percentage DECIMAL(5,2),
+    new_percentage DECIMAL(5,2),
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DELIMITER $$
+
+CREATE PROCEDURE update_percentage_with_audit(
+    IN p_studentid INT,
+    IN p_new_percentage DECIMAL(5,2)
+)
+BEGIN
+    DECLARE old_perc DECIMAL(5,2);
+
+    -- Get old percentage
+    SELECT percentage 
+    INTO old_perc
+    FROM Student
+    WHERE studentid = p_studentid;
+
+    -- Update new percentage
+    UPDATE Student
+    SET percentage = p_new_percentage
+    WHERE studentid = p_studentid;
+
+    -- Insert into audit table
+    INSERT INTO percentage_audit(student_id, old_percentage, new_percentage)
+    VALUES (p_studentid, old_perc, p_new_percentage);
+
+END $$
+
+DELIMITER ;
+
+CALL update_percentage_with_audit(1, 95.00);
+
 -- 15. Write a procedure that deletes a student’s record from all related tables: 
 -- student_course, subjects, profile, and finally students table. 
+
+DELIMITER $$
+CREATE PROCEDURE delete_student_full(
+    IN p_studentid INT
+)
+BEGIN
+    -- Delete from child tables first
+    DELETE FROM Student_Course 
+    WHERE studentid = p_studentid;
+
+    DELETE FROM Subjects 
+    WHERE studentid = p_studentid;
+    
+    DELETE FROM Profile 
+    WHERE studentid = p_studentid;
+    
+    -- Finally delete from parent table
+    DELETE FROM Student 
+    WHERE studentid = p_studentid;
+END $$
+DELIMITER ;
+
+CALL delete_student_full(1);
