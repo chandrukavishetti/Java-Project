@@ -7,7 +7,6 @@ public class InsuranceClaim {
 	}
 
 	private static int idCounter = 100;
-
 	private final int claimId;
 	private String policyNumber;
 	private double claimAmount;

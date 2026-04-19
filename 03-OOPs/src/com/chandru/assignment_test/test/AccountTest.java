@@ -8,14 +8,6 @@ import com.chandru.assignment_test.model.AccountRepository;
 import com.chandru.assignment_test.model.AccountService;
 import com.chandru.assignment_test.model.AccountInputHandler;
 
-//import com.chandru.assignment_test.model.Account;
-//import com.chandru.assignment_test.model.SavingsAccount;
-//import com.chandru.assignment_test.model.CurrentAccount;
-//import com.chandru.assignment_test.model.AccountValidator;
-//import com.chandru.assignment_test.model.AccountRepository;
-//import com.chandru.assignment_test.model.AccountService;
-//import com.chandru.assignment_test.model.AccountInputHandler;
-
 public class AccountTest {
 
 	public static void main(String[] args) {
