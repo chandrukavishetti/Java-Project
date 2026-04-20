@@ -588,14 +588,13 @@ CREATE TABLE percentage_audit (
 );
 
 DELIMITER $$
-
 CREATE PROCEDURE update_percentage_with_audit(
     IN p_studentid INT,
     IN p_new_percentage DECIMAL(5,2)
 )
 BEGIN
     DECLARE old_perc DECIMAL(5,2);
-
+    
     -- Get old percentage
     SELECT percentage 
     INTO old_perc
@@ -642,3 +641,207 @@ END $$
 DELIMITER ;
 
 CALL delete_student_full(1);
+
+-- Function
+-- 1. Write a function get_student_label that takes a student ID and returns a string in the 
+-- format:  'Roll: [rollnumber] - Name: [name]' from the students table. 
+
+delimiter $$
+create function get_student_label(p_studentid int)
+returns varchar(200)
+-- deterministic means same input same output
+deterministic
+begin
+declare v_roll int;
+declare v_name varchar(100);
+
+-- get data from the tabel 
+select rollnumber,name into v_roll,v_name from student where studentid=p_studentid;
+
+-- returning the formatted data 
+return concat('Roll : ',v_roll, ' - Name : ',v_name );
+end $$
+delimiter ;
+
+select get_student_label(16);
+
+-- 2. Calculate Percentage Grade 
+-- Write a function get_grade that takes a percentage as input and returns: 
+-- 'A' if percentage ≥ 90 
+-- 'B' if 75–89 
+-- 'C' if 50–74 
+-- 'D' otherwise 
+
+delimiter $$
+create function get_grade(p_percentage int)
+returns char(1)
+deterministic 
+begin 
+declare grade char(1);
+
+if p_percentage>=90 then set grade='A';
+elseif p_percentage >=75 then set grade='B';
+elseif p_percentage >=60 then set grade='C';
+else set grade='D';
+end if;
+return grade ;
+end $$
+delimiter ;
+
+select name,percentage, get_grade(percentage) grade from student;
+
+-- 3. Get Age Category 
+-- Write a function get_age_category that takes a student's age and returns 'Teen', 
+-- 'Adult', or 'Senior' based on: 
+-- Teen: age < 20 
+-- Adult: age 20–40 
+-- Senior: age > 40 
+
+delimiter $$
+create function get_age_category(p_age int)
+returns varchar(100)
+deterministic
+begin
+declare v_position varchar(100);
+if p_age < 20 then set v_position='Teen';
+elseif p_age>=20 and p_age<=40 then set v_position='Adult';
+else set v_position='Senior';
+end if;
+return v_position;
+end $$
+delimiter ;
+
+select get_age_category(21);
+
+-- 4. Check Pass or Fail 
+-- Write a function is_passed that takes a percentage and returns 'Pass' if ≥ 40, 
+-- otherwise 'Fail'. 
+
+delimiter $$
+create function is_passed (p_percentage int)
+returns varchar(100)
+deterministic
+begin
+declare v_result varchar(100);
+if p_percentage>=40 then set v_result='Pass';
+else set v_result='Fail';
+end if;
+return v_result;
+end $$
+delimiter ;
+
+select is_passed(85);
+select is_passed(35);
+
+-- 5. Get Subject Count for a Student 
+-- Write a function subject_count that takes a student ID and returns how many 
+-- subjects the student is enrolled in (from the subjects table). 
+
+delimiter $$
+create function subject_count(p_studentid int)
+returns int
+deterministic
+begin
+declare sub_count int;
+-- select s.studentid,count(studentid) into sub_count from subjects su inner join student s on s.studentid=su.studentid group by s.studentid having studentid=p_studentid;
+select count(*) into sub_count from subjects where studentid=p_studentid;
+return sub_count;
+end $$
+delimiter ;
+
+select subject_count(1);
+
+-- 6. Get Course Count 
+-- Write a function course_count that takes a student ID and returns the number of 
+-- courses the student is enrolled in (from the student_course table). 
+
+delimiter $$
+create function course_count(p_studentid int)
+returns int
+deterministic
+begin 
+declare number_of_course int;
+select count(*) into number_of_course from student_course where studentid=p_studentid;
+return number_of_course;
+end $$
+delimiter ;
+
+select course_count(1);
+
+-- 7. Get Mobile Number 
+-- Write a function get_mobile_by_student that takes a student ID and returns their 
+-- mobile number from the profile table. 
+delimiter $$
+create function get_mobile_by_student(p_studentid int)
+returns varchar(200)
+deterministic
+begin
+declare v_std_id varchar(100) ;
+select mobileno into v_std_id from profile where studentid=p_studentid;
+return v_std_id;
+end $$
+delimiter ;
+
+select get_mobile_by_student(1);
+
+-- 8. Average Percentage by City 
+-- Write a function average_percentage_by_city that takes a city name and returns the 
+-- average percentage of all students living in that city (using join with profile). 
+
+delimiter $$
+create function average_percentage_by_city(v_city varchar(100))
+returns double
+deterministic
+begin 
+declare avg_percentage double;
+select avg(s.percentage) into avg_percentage from student s join profile p on s.studentid=p.studentid where p.city=v_city;
+return avg_percentage;
+end $$
+delimiter ;
+
+select average_percentage_by_city('Pune');
+
+-- 9. Get Highest Percentage Among All Students 
+-- Write a function get_top_percentage that returns the highest percentage score from 
+-- the students table. 
+
+delimiter $$
+create function get_top_percentage()
+returns double 
+deterministic
+begin
+declare top_percentage double;
+select max(percentage) into top_percentage from student;
+return top_percentage;
+end $$
+delimiter ;
+
+select get_top_percentage();
+
+-- 10. Get Student Status 
+-- Write a function get_student_status that takes a student ID and returns: 
+-- 'Excellent' if percentage ≥ 90 
+-- 'Good' if between 75–89 
+-- 'Average' if between 40–74 
+-- 'Poor' if below 40 
+-- (Use a SELECT with conditional logic)
+
+delimiter $$
+create function get_student_status(p_studentid int)
+returns varchar(100)
+deterministic
+begin
+declare result varchar(100);
+declare v_percentage decimal(5,2);
+
+select percentage into v_percentage from student where studentid=p_studentid;
+if v_percentage >= 90 then set result='Excellecnt';
+elseif v_percentage >=75 and v_percentage <=89 then set result='Good';
+elseif v_percentage>=40 and v_percentage <=74 then set result='Average';
+else set result='Poor';
+end if;
+return result;
+end $$
+delimiter ;
+ 
+ select get_student_status(16);

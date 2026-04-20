@@ -39,6 +39,8 @@ subname VARCHAR(50),
 FOREIGN KEY (studentid) REFERENCES Student(studentid) 
 ); 
 
+select * from subjects;
+
 CREATE TABLE Course ( 
 courseid INT PRIMARY KEY, 
 coursename VARCHAR(100) 
@@ -51,6 +53,7 @@ PRIMARY KEY (studentid, courseid),
 FOREIGN KEY (studentid) REFERENCES Student(studentid), 
 FOREIGN KEY (courseid) REFERENCES Course(courseid) 
 ); 
+select *from student_course;
 
 INSERT INTO Profile VALUES 
 (1,  'Pune', '9876543210'), 

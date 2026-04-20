@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.chandru.abstract_interface_exception.model3.OrderServiceSystem"/>
-<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
-<fullyQualifiedTypeName name="com.chandru.comparator_comparable_assignment.model.Transaction"/>
-<fullyQualifiedTypeName name="com.chandru.practice.model.BankAccount"/>
-<fullyQualifiedTypeName name="com.chandru.practice.model.Car"/>
-<fullyQualifiedTypeName name="com.chandru.practice.model.Bike"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="com.chandru.practice.model.Vehicle"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.InputValidator"/>
 <fullyQualifiedTypeName name="com.chandru.practice.model.Calculater"/>
 <fullyQualifiedTypeName name="com.chandru.practice.model.Employee"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.Disabled"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.RepeatedTest"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.Tag"/>
+<fullyQualifiedTypeName name="com.chandru.assignment.code.Calculater"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
 </qualifiedTypeNameHistroy>
