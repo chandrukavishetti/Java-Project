@@ -1,12 +1,20 @@
 package com.chandru.assignment.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import com.chandru.assignment.code.Calculater;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CalculaterTest {
 
 	Calculater calculater;
@@ -41,7 +49,21 @@ class CalculaterTest {
 		assertNotEquals(11, calculater.add(5, 5));
 	}
 
+	@ParameterizedTest
+	@Order(1)
+	@CsvSource({ "1,2,3", "-2,-3,-5", "0,1,1", "11,1,12" })
+	void shouldReturnSumWhenInputIsValid(int a, int b, int expected) {
+		assertEquals(expected, calculater.add(a, b));
+	}
+
 	// subtract
+
+	@ParameterizedTest
+	@Order(2)
+	@CsvSource({ "3,1,2", "-5,-5,0", "5,7,-2", "5,0,5" })
+	void shouldReturnDifferenceWhenInputIsValid(int a, int b, int expected) {
+		assertEquals(expected, calculater.subtract(a, b));
+	}
 
 	@Test
 	void shouldReturnCorrectDifferenceForPositiveNumbers() {
@@ -70,6 +92,13 @@ class CalculaterTest {
 
 	// multiply
 
+	@ParameterizedTest
+	@Order(3)
+	@CsvSource({ "5,5,25", "-5,-5,25", "5,-5,-25", "5,0,0" })
+	void shouldReturnMultiplicationWhenInputIsValid(int a, int b, int expected) {
+		assertEquals(expected, calculater.multiply(a, b));
+	}
+
 	@Test
 	void shouldReturnCorrectProductForPositiveNumbers() {
 		assertEquals(25, calculater.multiply(5, 5));
@@ -96,6 +125,13 @@ class CalculaterTest {
 	}
 
 	// divide
+
+	@ParameterizedTest
+	@Order(4)
+	@CsvSource({ "10,5,2", "-10,-5,2", "10,-5,-2", "0,5,0" })
+	void shouldReturnDivisionWhenInputIsValid(int a, int b, int expected) {
+		assertEquals(expected, calculater.divide(a, b));
+	}
 
 	@Test
 	void shouldReturnCorrectQuotientForPositiveNumbers() {
