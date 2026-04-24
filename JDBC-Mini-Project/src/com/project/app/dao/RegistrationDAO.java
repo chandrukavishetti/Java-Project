@@ -47,9 +47,14 @@ public class RegistrationDAO {
 				PreparedStatement preparedstatement = connection.prepareStatement(sql);
 				ResultSet resultset = preparedstatement.executeQuery()) {
 
+			boolean found = false;
 			while (resultset.next()) {
+				found = true;
 				System.out.println(resultset.getInt(1) + " | " + resultset.getString(2) + " | " + resultset.getString(3)
 						+ " | " + resultset.getString(4) + " | " + resultset.getDouble(5));
+			}
+			if (!found) {
+				System.out.println("no student available table is empty ");
 			}
 		}
 	}

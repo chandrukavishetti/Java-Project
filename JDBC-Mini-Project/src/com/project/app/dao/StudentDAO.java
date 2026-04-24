@@ -1,6 +1,9 @@
 package com.project.app.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.project.app.model.Student;
 import com.project.app.util.DBUtil;
 
@@ -73,5 +76,18 @@ public class StudentDAO {
 				throw e;
 			}
 		}
+	}
+
+	public List<String> getLookupItems(String table, String column) throws Exception {
+		List<String> list = new ArrayList<>();
+		String sql = "SELECT " + column + " FROM " + table;
+		try (Connection con = com.project.app.util.DBUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery()) {
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		}
+		return list;
 	}
 }
