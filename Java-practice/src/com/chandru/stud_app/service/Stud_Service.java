@@ -23,4 +23,9 @@ public class Stud_Service {
 		}
 	}
 
+	public void deleteStudentById(int id) throws Exception {
+		sdao.deleteStudentById(id);
+		System.out.println("student deleted successfully");
+	}
+
 }

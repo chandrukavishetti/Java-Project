@@ -17,9 +17,10 @@ public class MainApp {
 				System.out.println("1.Add student");
 				System.out.println("2.View all students ");
 				System.out.println("3.update student");
-				System.out.println("4.Exit");
+				System.out.println("4.delete student by id ");
+				System.out.println("5.Exit");
 
-				int choice = input.readFromMenu(1, 4);
+				int choice = InputValidator.readFromMenu(1, 4);
 
 				switch (choice) {
 				case 1:
@@ -46,6 +47,11 @@ public class MainApp {
 					service.updateStudent(id1, name1, age1, marks1, branch1);
 					break;
 				case 4:
+					System.out.println("enter the student id to delete");
+					int studentid = input.readInt();
+					service.deleteStudentById(studentid);
+					break;
+				case 5:
 					System.out.println("exiting ");
 					return;
 				}

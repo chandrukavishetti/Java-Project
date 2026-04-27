@@ -60,4 +60,25 @@ public class StudentDAO {
 		}
 	}
 
+	public boolean deleteStudentById(int id) throws Exception {
+		String sql = "delete from student where student_id=?";
+
+		try (Connection connection = DBConnect.getConnection()) {
+			connection.setAutoCommit(false);
+
+			try (PreparedStatement preparedstatement = connection.prepareStatement(sql)) {
+				preparedstatement.setInt(1, id);
+				int row = preparedstatement.executeUpdate();
+
+				if (row == 0) {
+					throw new Exception("student not found");
+				}
+				connection.commit();
+				return true;
+			} catch (Exception e) {
+				connection.rollback();
+				throw e;
+			}
+		}
+	}
 }

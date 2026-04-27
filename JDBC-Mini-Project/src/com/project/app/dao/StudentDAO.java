@@ -81,11 +81,11 @@ public class StudentDAO {
 	public List<String> getLookupItems(String table, String column) throws Exception {
 		List<String> list = new ArrayList<>();
 		String sql = "SELECT " + column + " FROM " + table;
-		try (Connection con = com.project.app.util.DBUtil.getConnection();
-				PreparedStatement ps = con.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery()) {
-			while (rs.next()) {
-				list.add(rs.getString(1));
+		try (Connection connection = com.project.app.util.DBUtil.getConnection();
+				PreparedStatement preparedstatement = connection.prepareStatement(sql);
+				ResultSet resultset = preparedstatement.executeQuery()) {
+			while (resultset.next()) {
+				list.add(resultset.getString(1));
 			}
 		}
 		return list;
