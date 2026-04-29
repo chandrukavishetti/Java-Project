@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
     <libraryInfo home="C:\Users\Dell\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.10.v20260205-0638\jre" version="21.0.10"/>
+    <libraryInfo home="C:\Program Files\Eclipse Adoptium\jdk-11.0.31.11-hotspot" version="11.0.31"/>
     <libraryInfo home="C:\Program Files\Java\jre1.8.0_281" version="1.8.0_281">
         <bootpath>
             <entry path="C:\Program Files\Java\jre1.8.0_281\lib\resources.jar"/>
