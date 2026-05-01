@@ -1,7 +1,6 @@
 package com.chandru.studentAssignment1;
 
 import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,16 +13,12 @@ public class StudentRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-		// super.init();
-		System.out.println("Student Registration Initialized");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.sendRedirect("StudentAssignment1/RegistrationForm.jsp");
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// super.doPost(req, resp);
 
 		String name = req.getParameter("studentName");
 		String email = req.getParameter("email");
@@ -36,7 +31,7 @@ public class StudentRegistration extends HttpServlet {
 
 		if (name == null || name.trim().isEmpty()) {
 			isValid = false;
-			errorMsg = "Student name is Required";
+			errorMsg = "Student Name is required";
 		} else if (email == null || email.trim().isEmpty()) {
 			isValid = false;
 			errorMsg = "Email is required";
@@ -44,41 +39,43 @@ public class StudentRegistration extends HttpServlet {
 			isValid = false;
 			errorMsg = "Age is required";
 		} else {
-			int age = Integer.parseInt(ageStr);
-			if (age < 18) {
+			try {
+				int age = Integer.parseInt(ageStr);
+				if (age < 18) {
+					isValid = false;
+					errorMsg = "Age must be 18 or above";
+				}
+			} catch (NumberFormatException e) {
 				isValid = false;
-				errorMsg = "Age must be 18 or above";
+				errorMsg = "Please enter a valid age";
 			}
 		}
+
 		if (course == null || course.trim().isEmpty()) {
 			isValid = false;
-			errorMsg = "please select a course";
+			errorMsg = "Please select a course";
 		}
+
 		if (batch == null || batch.trim().isEmpty()) {
 			isValid = false;
-			errorMsg = "please select preferred batch time";
+			errorMsg = "Please select preferred batch time";
 		}
+
 		if (isValid) {
-			// valid=forwording to conformation page usig the RequestDispatcher
+			// Forward to confirmation page
 			req.setAttribute("studentName", name);
 			req.setAttribute("email", email);
 			req.setAttribute("age", ageStr);
 			req.setAttribute("courseName", course);
 			req.setAttribute("batchTime", batch);
 
-			RequestDispatcher rd = req.getRequestDispatcher("/StudentAssignment1/confirmation.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/StudentAssignment1/Confirmation.jsp");
 			rd.forward(req, resp);
 		} else {
-			// invalid=redirect back to form using sendRedirect
-			resp.sendRedirect("registrationForm.jsp");
+			// Forward back to form with error message + previous data
+			req.setAttribute("errorMsg", errorMsg);
+			RequestDispatcher rd = req.getRequestDispatcher("/StudentAssignment1/RegistrationForm.jsp");
+			rd.forward(req, resp);
 		}
 	}
-
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		// super.destroy();
-		System.out.println("StudentRegistration destroyed");
-	}
-
 }
