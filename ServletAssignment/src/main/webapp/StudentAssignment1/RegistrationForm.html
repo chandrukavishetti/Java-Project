@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Registration Form</title>
+<style>
+body {
+	font-family: Arial;
+}
+
+table {
+	margin: 20px auto;
+}
+
+td {
+	padding: 8px;
+}
+</style>
+</head>
+<body>
+	<h2 align="center">Student Course Registration Form</h2>
+
+	<form action="../StudentRegistration" method="post">
+		<table>
+			<tr>
+				<td>Student Name:</td>
+				<td><input type="text" name="studentName" required></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="email" name="email" required></td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="number" name="age" min="1" required></td>
+			</tr>
+			<tr>
+				<td>Course Name:</td>
+				<td><select name="courseName" required>
+						<option value="">-- Select Course --</option>
+						<option value="Java Full Stack">Java Full Stack</option>
+						<option value="Python Full Stack">Python Full Stack</option>
+						<option value="MERN Stack">MERN Stack</option>
+						<option value="Data Analytics">Data Analytics</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Preferred Batch Time:</td>
+				<td><select name="batchTime" required>
+						<option value="">-- Select Batch --</option>
+						<option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12
+							PM)</option>
+						<option value="Afternoon (2 PM - 5 PM)">Afternoon (2 PM -
+							5 PM)</option>
+						<option value="Evening (6 PM - 9 PM)">Evening (6 PM - 9
+							PM)</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Submit Registration"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
