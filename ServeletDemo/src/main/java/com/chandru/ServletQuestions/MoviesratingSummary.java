@@ -1,4 +1,4 @@
-package com.chandru.assignment;
+package com.chandru.ServletQuestions;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -8,16 +8,20 @@
 
 	<h2>Course Catalog Viewer</h2>
 
-	<form action="courses" method="post">
+	<!-- 	<form action="courses" method="post">
 		Department: <input type="text" name="department"><br>
 		<br> <input type="submit" value="Submit">
-	</form>
+	</form> -->
 
-<!-- <select name="department"> -->
-<!--     <option value="cs">CS</option> -->
-<!--     <option value="me">ME</option> -->
-<!--     <option value="ee">EE</option> -->
-<!-- </select> -->
+	<form action="courses" method="post">
+		<select name="department">
+			<option value=" ">-- select the course --</option>
+			<option value="cs">CS</option>
+			<option value="me">ME</option>
+			<option value="ee">EE</option>
+			<br>
+		</select> <br> <input type="submit" value="Submit">
+	</form>
 
 </body>
 </html>

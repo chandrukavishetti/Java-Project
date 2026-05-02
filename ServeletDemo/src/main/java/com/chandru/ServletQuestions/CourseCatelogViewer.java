@@ -1,4 +1,4 @@
-package com.chandru.assignment;
+package com.chandru.ServletQuestions;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,9 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/courses")
 public class CourseCatelogViewer extends HttpServlet {
 
-	private static HashMap<String, String[]> courseslist = new HashMap<>();
+	private HashMap<String, String[]> courseslist;
 
-	static {
+	@Override
+	public void init() throws ServletException {
+		courseslist = new HashMap<>();
 		courseslist.put("cs", new String[] { "DSA", "DBMS", "CN" });
 		courseslist.put("me", new String[] { "Mechanical Design", "Thermal and Fluids", "Manufacturing",
 				"Robotics and Automation", "Automobile Engineering" });

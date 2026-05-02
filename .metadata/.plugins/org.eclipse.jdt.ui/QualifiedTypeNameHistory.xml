@@ -19,7 +19,6 @@
     <fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.MarkType"/>
     <fullyQualifiedTypeName name="com.chandru.tic_tac_toe_using_Facade.model.Game"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.ConcurrentModificationException"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="com.chandru.stud_app.util.InputValidator"/>
     <fullyQualifiedTypeName name="com.chandru.stud_app.service.Stud_Service"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="jakarta.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
 </qualifiedTypeNameHistroy>
