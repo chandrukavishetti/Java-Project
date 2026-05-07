@@ -11,3 +11,5 @@ CREATE TABLE leave_applications (
     leave_days INT,
     reason TEXT
 );
+
+select * from leave_applications;
