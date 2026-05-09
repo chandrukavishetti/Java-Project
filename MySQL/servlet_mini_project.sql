@@ -47,8 +47,8 @@ CREATE TABLE admin (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );
-
-insert into admin (username,password) values ('admint','admin123');
+select * from admin;
+insert into admin (username,password) values ('admin','admin123');
 
 CREATE TABLE students (
     student_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,6 +59,7 @@ CREATE TABLE students (
     city VARCHAR(50) NOT NULL,
     CHECK (age >= 18)  
 );
+select * from students;
 
 CREATE TABLE courses (
     course_id INT PRIMARY KEY AUTO_INCREMENT,

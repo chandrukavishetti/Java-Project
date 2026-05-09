@@ -65,9 +65,14 @@ public class AddStudentServlet extends HttpServlet {
 		try {
 			boolean status = dao.addStudent(student);
 			if (status) {
+				HttpSession session = req.getSession();
+				session.setAttribute("message", "Student added successfully");
 				resp.sendRedirect("dashboard");
 			}
 		} catch (Exception e) {
+			HttpSession session = req.getSession();
+			session.setAttribute("message", "Failed to add student");
+			resp.sendRedirect("dashboard");
 			e.printStackTrace();
 		}
 	}

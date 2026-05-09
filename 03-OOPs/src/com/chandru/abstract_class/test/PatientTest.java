@@ -1,6 +1,7 @@
 package com.chandru.abstract_class.test;
 
 import java.util.Scanner;
+
 import com.chandru.abstract_class.model.Patient;
 import com.chandru.abstract_class.model.OutPatient;
 import com.chandru.abstract_class.model.InPatient;
