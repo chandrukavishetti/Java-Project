@@ -29,8 +29,8 @@ public class AddStudentServlet extends HttpServlet {
 			resp.sendRedirect("login");
 			return;
 		}
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/student-form.jsp");
-		rd.forward(req, resp);
+		RequestDispatcher requestdispatcher = req.getRequestDispatcher("/WEB-INF/views/student-form.jsp");
+		requestdispatcher.forward(req, resp);
 	}
 
 	@Override

@@ -15,15 +15,16 @@ public class StudentDAO {
 
 		String sql = "insert into students(student_name,email,phone,age,city) values(?,?,?,?,?)";
 
-		try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+		try (Connection connection = DBConnection.getConnection();
+				PreparedStatement preparedstatement = connection.prepareStatement(sql)) {
 
-			ps.setString(1, s.getName());
-			ps.setString(2, s.getEmail());
-			ps.setString(3, s.getPhone());
-			ps.setInt(4, s.getAge());
-			ps.setString(5, s.getCity());
+			preparedstatement.setString(1, s.getName());
+			preparedstatement.setString(2, s.getEmail());
+			preparedstatement.setString(3, s.getPhone());
+			preparedstatement.setInt(4, s.getAge());
+			preparedstatement.setString(5, s.getCity());
 
-			int rows = ps.executeUpdate();
+			int rows = preparedstatement.executeUpdate();
 
 			return rows > 0;
 		}
@@ -92,6 +93,22 @@ public class StudentDAO {
 
 			int rows = ps.executeUpdate();
 			return rows > 0;
+		}
+	}
+
+	public boolean hasRegistrations(int studentId) throws Exception {
+		String sql = "select count(*) from registrations where student_id=?";
+
+		try (Connection connection = DBConnection.getConnection();
+				PreparedStatement ps = connection.prepareStatement(sql)) {
+
+			ps.setInt(1, studentId);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt(1) > 0;
+			}
+			return false;
 		}
 	}
 }

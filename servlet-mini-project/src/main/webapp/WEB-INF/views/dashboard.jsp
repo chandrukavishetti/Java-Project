@@ -44,6 +44,33 @@
 	<br>
 	<br>
 
+	<a href="add-course"> add course</a>
+
+	<br>
+	<br>
+
+	<a href="update-course"> Update Course</a>
+	<br>
+	<br>
+
+
+	<a href="registration-form">Register Student for Course</a>
+
+	<br>
+	<br>
+	<a href="view-registrations">View Registrations</a>
+
+	<br>
+	<br>
+	<a href="view-registrations"> delete registration</a>
+	<br>
+	<br>
+
+	<a href="${pageContext.request.contextPath}/view-courses">View
+		Courses</a>
+	<br>
+	<br>
+
 	<a href="logout">Logout</a>
 
 </body>
