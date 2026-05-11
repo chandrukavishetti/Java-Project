@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Dashboard</title>
 </head>
 <body>

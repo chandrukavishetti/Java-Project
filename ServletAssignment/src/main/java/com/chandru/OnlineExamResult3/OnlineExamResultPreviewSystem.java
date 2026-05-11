@@ -19,7 +19,7 @@ public class OnlineExamResultPreviewSystem extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Redirect to form on GET request
-		resp.sendRedirect("OnlineExamResult3/examForm.jsp");
+		resp.sendRedirect("/OnlineExamResult3/examForm.jsp");
 	}
 
 	@Override
@@ -115,13 +115,13 @@ public class OnlineExamResultPreviewSystem extends HttpServlet {
 			req.setAttribute("percentage", String.format("%.2f", percentage));
 			req.setAttribute("resultStatus", resultStatus);
 
-			RequestDispatcher rd = req.getRequestDispatcher("OnlineExamResult3/resultPreviewPage.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/OnlineExamResult3/resultPreviewPage.jsp");
 			rd.forward(req, resp);
 
 		} else {
 			// Send error back to form
 			req.setAttribute("errorMsg", errorMsg);
-			RequestDispatcher rd = req.getRequestDispatcher("OnlineExamResult3/examForm.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/OnlineExamResult3/examForm.jsp");
 			rd.forward(req, resp);
 		}
 	}

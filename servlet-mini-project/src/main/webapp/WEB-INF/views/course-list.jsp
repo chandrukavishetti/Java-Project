@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Courses List</title>
 </head>
 <body>

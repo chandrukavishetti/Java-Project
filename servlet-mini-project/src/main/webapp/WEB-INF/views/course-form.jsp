@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Add Course</title>
 </head>
 <body>
@@ -24,11 +26,9 @@
 
 		Course Name: <input type="text" name="name" required> <br>
 		<br> Duration (in days): <input type="number" name="duration"
-			required> <br>
-		<br> Fees: <input type="number" step="0.01" name="fees" required>
-		<br>
-		<br> Trainer Name: <input type="text" name="trainer_name"
-			required> <br>
+			required> <br> <br> Fees: <input type="number"
+			step="0.01" name="fees" required> <br> <br> Trainer
+		Name: <input type="text" name="trainer_name" required> <br>
 		<br>
 
 		<button type="submit">Add Course</button>

@@ -50,7 +50,7 @@ button {
 	}
 	%>
 
-	<form action="<%=request.getContextPath()%>/onlineexam" method="post">
+	<form action="../onlineexam" method="post">
 		<label>Student Name:</label> <input type="text" name="studentName"
 			required><br> <label>Roll Number:</label> <input
 			type="number" name="rollNumber" required><br> <label>Subject
