@@ -1,4 +1,4 @@
-package com.chandru.collection.model2;
+package com.chandru.collection.ordertestmodel2;
 
 public abstract class Order implements Comparable<Order> {
 

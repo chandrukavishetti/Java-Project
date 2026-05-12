@@ -1,6 +1,6 @@
-package com.chandru.collection.test2;
+package com.chandru.collection.ordertest2;
 
-import com.chandru.collection.model2.*;
+import com.chandru.collection.ordertestmodel2.*;
 
 public class OrderTest {
 

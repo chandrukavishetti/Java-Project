@@ -1,4 +1,4 @@
-package com.chandru.collection.model2;
+package com.chandru.collection.ordertestmodel2;
 
 public class PriorityOrder extends Order {
 

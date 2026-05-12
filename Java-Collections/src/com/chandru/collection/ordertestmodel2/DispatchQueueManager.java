@@ -1,4 +1,4 @@
-package com.chandru.collection.model2;
+package com.chandru.collection.ordertestmodel2;
 
 import java.util.LinkedList;
 import java.util.Queue;

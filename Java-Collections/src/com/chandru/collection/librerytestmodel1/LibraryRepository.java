@@ -1,4 +1,4 @@
-package com.chandru.collection.model1;
+package com.chandru.collection.librerytestmodel1;
 
 import java.util.Iterator;
 import java.util.Set;

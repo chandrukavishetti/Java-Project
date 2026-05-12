@@ -1,6 +1,6 @@
-package com.chandru.collection.test1;
+package com.chandru.collection.librerytest1;
 
-import com.chandru.collection.model1.*;
+import com.chandru.collection.librerytestmodel1.*;
 
 public class LibraryTest {
 
