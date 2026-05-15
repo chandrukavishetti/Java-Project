@@ -24,7 +24,7 @@ public abstract class Student implements Comparable<Student> {
 		return name;
 	}
 
-	public String department() {
+	public String getDepartment() {
 		return department;
 	}
 
