@@ -24,14 +24,14 @@ public class OrderRepository {
 
 	public void removeOrder(int id) {
 
-		Iterator<Order> itr = orders.iterator();
+		Iterator<Order> iterator = orders.iterator();
 
-		while (itr.hasNext()) {
+		while (iterator.hasNext()) {
 
-			Order o = itr.next();
+			Order o = iterator.next();
 
 			if (o.getOrderId() == id) {
-				itr.remove();
+				iterator.remove();
 			}
 		}
 	}

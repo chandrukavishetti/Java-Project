@@ -1,68 +1,28 @@
 package com.chandru.collection.collegestudentmodel3;
 
-import java.util.Scanner;
+import java.util.Map;
 
 public class StudentValidator {
 
-	private Scanner sc = new Scanner(System.in);
+	public static void validate(int id, String name, String department, Map<String, Integer> marks)
+			throws InvalidStudentDataException {
 
-	public int readInt(String msg) {
+		if (id <= 0)
+			throw new InvalidStudentDataException("Invalid student ID");
 
-		while (true) {
-			System.out.print(msg);
-			try {
-				return Integer.parseInt(sc.nextLine());
-			} catch (Exception e) {
-				System.out.println("Invalid number.");
-			}
+		if (name == null || name.trim().isEmpty())
+			throw new InvalidStudentDataException("Name cannot be empty");
+
+		if (department == null || department.trim().isEmpty())
+			throw new InvalidStudentDataException("Department cannot be empty");
+
+		if (marks.isEmpty())
+			throw new InvalidStudentDataException("Marks cannot be empty");
+
+		for (Integer value : marks.values()) {
+
+			if (value < 0 || value > 100)
+				throw new InvalidStudentDataException("Marks must be between 0 and 100");
 		}
 	}
-
-	public double readDouble(String msg) {
-
-		while (true) {
-			System.out.print(msg);
-			try {
-				return Double.parseDouble(sc.nextLine());
-			} catch (Exception e) {
-				System.out.println("Invalid amount.");
-			}
-		}
-	}
-
-	public String readString(String msg) {
-
-		while (true) {
-			System.out.print(msg);
-			String val = sc.nextLine();
-
-			if (val.trim().isEmpty()) {
-				System.out.println("Cannot be empty.");
-				continue;
-			}
-			return val;
-		}
-	}
-
-	public int readOrderType() {
-
-		while (true) {
-
-			System.out.println("\n1. Regular Order");
-			System.out.println("2. Priority Order");
-
-			try {
-				int ch = Integer.parseInt(sc.nextLine());
-
-				if (ch == 1 || ch == 2)
-					return ch;
-
-				System.out.println("Choose 1 or 2");
-
-			} catch (Exception e) {
-				System.out.println("Invalid input");
-			}
-		}
-	}
-
 }
