@@ -1,179 +1,203 @@
+/* Professional Light-Toned Layout Stylesheet */
 * {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-}
-
-:root {
-	/* Google's Premium Color Palette */
-	--google-blue: #1a73e8;
-	--google-blue-hover: #1765cc;
-	--bg-gray: #f8f9fa;
-	--border-color: #dadce0;
-	--text-main: #202124;
-	--text-secondary: #5f6368;
-	--shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px
-		rgba(60, 64, 67, 0.15);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-	font-family: 'Google Sans', Roboto, Arial, sans-serif;
-	background-color: var(--bg-gray);
-	color: var(--text-main);
+	background-color: #f4f7f6;
+	color: #2c3e50;
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
 	padding: 20px;
 }
 
+/* Central Card Layout Container */
 .container {
-	max-width: 1100px;
-	margin: 0 auto;
-	background: white;
+	background: #ffffff;
+	padding: 30px 40px;
 	border-radius: 8px;
-	border: 1px solid var(--border-color);
-	overflow: hidden;
-	animation: slideIn 0.4s ease-out;
-}
-
-@keyframes slideIn {from { opacity:0;
-	transform: translateY(10px);
-}
-
-to {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-}
-.header {
-	background: white;
-	color: var(--text-main);
-	padding: 40px 30px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+	width: 100%;
+	max-width: 500px;
 	text-align: left;
-	/* Google usually aligns left for a professional look */
-	border-bottom: 1px solid var(--border-color);
+	margin: auto;
 }
 
-.header h1 {
-	font-size: 28px;
-	font-weight: 400;
-	color: var(--text-main);
+/* Custom width for table and listing views */
+.container.wide {
+	max-width: 900px;
 }
 
-.header p {
-	color: var(--text-secondary);
-	margin-top: 8px;
+h2, h3 {
+	margin-bottom: 20px;
+	color: #34495e;
+	text-align: center;
+	font-weight: 600;
+	border-bottom: 2px solid #eef2f5;
+	padding-bottom: 10px;
 }
 
-/* Navigation: Professional & Simple */
-.navbar {
-	background: white;
-	padding: 10px 30px;
-	border-bottom: 1px solid var(--border-color);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+/* Forms and Inputs styling */
+.form-group {
+	margin-bottom: 18px;
 }
 
-.nav-links a {
-	color: var(--text-secondary);
-	text-decoration: none;
-	padding: 10px 15px;
-	border-radius: 4px;
-	transition: background 0.2s;
+label {
+	display: block;
+	margin-bottom: 6px;
 	font-weight: 500;
 	font-size: 14px;
+	color: #5a738e;
 }
 
-.nav-links a:hover {
-	background: #f1f3f4;
-	color: var(--google-blue);
-}
-
-.user-info {
-	background: #e8f0fe;
-	color: var(--google-blue);
-	padding: 6px 16px;
-	border-radius: 20px;
-	font-size: 13px;
-	font-weight: 500;
-}
-
-/* Forms: Clean Material Look */
-.form-container {
-	max-width: 450px;
-	border: 1px solid var(--border-color);
-	background: white;
-	padding: 35px;
-	border-radius: 8px;
-}
-
-input, select, textarea {
-	border: 1px solid var(--border-color);
+input[type="text"], input[type="email"], input[type="password"], input[type="number"],
+	select {
+	width: 100%;
+	padding: 10px 14px;
+	border: 1px solid #ccd6e0;
 	border-radius: 4px;
-	padding: 12px;
-	font-size: 14px;
-	transition: border-color 0.2s;
+	font-size: 15px;
+	color: #2c3e50;
+	background-color: #fcfdfe;
+	transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input:focus {
+input:focus, select:focus {
 	outline: none;
-	border: 2px solid var(--google-blue);
+	border-color: #5cb85c;
+	box-shadow: 0 0 0 3px rgba(92, 184, 92, 0.15);
 }
 
-button, .btn {
-	background: var(--google-blue);
+/* Button UI Utilities */
+.btn {
+	display: inline-block;
+	width: 100%;
+	padding: 12px;
+	background-color: #5cb85c;
 	color: white;
-	padding: 10px 24px;
+	border: none;
 	border-radius: 4px;
-	font-size: 14px;
-	letter-spacing: 0.25px;
-	box-shadow: none;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.2s;
 }
 
-button:hover {
-	background: var(--google-blue-hover);
-	box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px
-		rgba(60, 64, 67, 0.15);
+.btn:hover {
+	background-color: #4cae4c;
 }
 
-/* Tables: Like Google Sheets/Console */
+.btn-secondary {
+	background-color: #7f8c8d;
+	margin-top: 10px;
+}
+
+.btn-secondary:hover {
+	background-color: #687273;
+}
+
+.btn-danger {
+	background-color: #d9534f;
+	padding: 6px 12px;
+	font-size: 13px;
+	width: auto;
+}
+
+.btn-danger:hover {
+	background-color: #c9302c;
+}
+
+.btn-edit {
+	background-color: #f0ad4e;
+	padding: 6px 12px;
+	font-size: 13px;
+	width: auto;
+	color: white;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.btn-edit:hover {
+	background-color: #ec971f;
+}
+
+/* Professional Tables formatting */
 table {
-	border-top: 1px solid var(--border-color);
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	background: #ffffff;
 }
 
 th {
-	background: #f8fafc;
-	color: var(--text-secondary);
-	border-bottom: 1px solid var(--border-color);
-	font-size: 13px;
-	text-transform: none;
+	background-color: #f8fafc;
+	color: #475569;
+	font-weight: 600;
+	text-align: left;
+	padding: 12px;
+	border-bottom: 2px solid #e2e8f0;
 }
 
 td {
-	color: var(--text-main);
-	border-bottom: 1px solid #eee;
+	padding: 12px;
+	border-bottom: 1px solid #edf2f7;
+	color: #334155;
+	font-size: 14px;
 }
 
-/* Dashboard Cards */
-.card {
-	background: white;
-	border: 1px solid var(--border-color);
-	box-shadow: none;
-	transition: box-shadow 0.2s;
+tr:hover {
+	background-color: #f8fafc;
 }
 
-.card:hover {
-	box-shadow: 0 4px 6px rgba(32, 33, 36, 0.1);
-	transform: none; /* Premium sites avoid "bouncing" too much */
+/* Navigation Menu Dashboard links */
+.nav-links {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
 }
 
-.card h3 {
-	color: var(--google-blue);
+.nav-links a {
+	color: #3498db;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 6px 12px;
+	border-radius: 4px;
+	background: #eaf2f8;
 }
 
-/* Footer */
-.footer {
-	background: #f8f9fa;
-	font-size: 12px;
-	color: var(--text-secondary);
+.nav-links a:hover {
+	background: #d4e6f1;
+}
+
+/* Alerts System messages colors */
+.alert {
+	padding: 12px;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.alert-danger {
+	background-color: #fdf2f2;
+	color: #9b1c1c;
+	border: 1px solid #f8b4b4;
+}
+
+.alert-success {
+	background-color: #f3faf7;
+	color: #03543f;
+	border: 1px solid #def7ec;
 }

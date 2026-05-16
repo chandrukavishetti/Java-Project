@@ -49,6 +49,24 @@ public class AddStudentServlet extends HttpServlet {
 			return;
 		}
 
+		if (!name.matches("^[a-zA-Z\\s]+$")) {
+			req.setAttribute("error", "Name must contain only alphabets and spaces");
+			req.getRequestDispatcher("/WEB-INF/views/student-form.jsp").forward(req, resp);
+			return;
+		}
+
+		if (!city.matches("^[a-zA-Z\\s]+$")) {
+			req.setAttribute("error", "City name must contain only alphabets and spaces");
+			req.getRequestDispatcher("/WEB-INF/views/student-form.jsp").forward(req, resp);
+			return;
+		}
+
+		if (!phone.matches("^[0-9]+$")) {
+			req.setAttribute("error", "Phone number must contain only numbers");
+			req.getRequestDispatcher("/WEB-INF/views/student-form.jsp").forward(req, resp);
+			return;
+		}
+
 		int age = Integer.parseInt(ageStr);
 
 		if (age < 18) {

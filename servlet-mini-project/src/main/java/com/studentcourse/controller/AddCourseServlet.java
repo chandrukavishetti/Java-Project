@@ -46,6 +46,18 @@ public class AddCourseServlet extends HttpServlet {
 			return;
 		}
 
+		if (!name.matches("^[a-zA-Z\\s]+$")) {
+			req.setAttribute("error", "name must contain only alphabets and spaces");
+			req.getRequestDispatcher("/WEB-INF/views/course-form.jsp").forward(req, resp);
+			return;
+		}
+
+		if (!trainer_name.matches("^[a-zA-Z\\s]+$")) {
+			req.setAttribute("error", "trainer name must contain only alphabets and spaces");
+			req.getRequestDispatcher("/WEB-INF/views/course-form.jsp").forward(req, resp);
+			return;
+		}
+
 		int duration = Integer.parseInt(durationStr);
 		if (duration < 0) {
 			req.setAttribute("error", "Duration must be more than 1 days");

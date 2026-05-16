@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Registration List</title>
 <style>
 table {

@@ -10,6 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Register Student for Course</title>
 </head>
 <body>
@@ -40,8 +42,7 @@
 			<%
 			}
 			%>
-		</select> <br>
-		<br> Select Course: <select name="courseId" required>
+		</select> <br> <br> Select Course: <select name="courseId" required>
 			<option value="">-- Select Course --</option>
 			<%
 			CourseDAO courseDao = new CourseDAO();
@@ -53,8 +54,7 @@
 			<%
 			}
 			%>
-		</select> <br>
-		<br>
+		</select> <br> <br>
 
 		<button type="submit">Register</button>
 
