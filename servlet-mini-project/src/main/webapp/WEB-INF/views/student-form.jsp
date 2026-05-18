@@ -22,6 +22,8 @@
 		City: <input type="text" name="city"> <br> <br>
 
 		<button type="submit">Add Student</button>
+		<br> <br> <a href="dashboard">Back to Dashboard</a>
+
 
 	</form>
 

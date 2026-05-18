@@ -91,4 +91,20 @@ public class CourseDAO {
 		}
 	}
 
+	public boolean hasRegistrations(int courseId) throws Exception {
+		String sql = "select count(*) from registrations where course_id=?";
+
+		try (Connection connection = DBConnection.getConnection();
+				PreparedStatement ps = connection.prepareStatement(sql)) {
+
+			ps.setInt(1, courseId);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt(1) > 0;
+			}
+			return false;
+		}
+	}
+
 }

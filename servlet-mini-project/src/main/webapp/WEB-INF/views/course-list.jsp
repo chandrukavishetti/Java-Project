@@ -62,7 +62,7 @@
 				<td><%=c.getTrainer()%></td>
 				<td><a href="course-edit?id=<%=c.getId()%>">Edit</a> | <a
 					href="course-delete?id=<%=c.getId()%>"
-					onclick="return confirm('Are you sure you want to delete this course?')">Delete</a>
+					onclick="return confirm('Are you sure you want to delete this course? This action will only work if no students are enrolled.')">Delete</a>
 				</td>
 			</tr>
 			<%

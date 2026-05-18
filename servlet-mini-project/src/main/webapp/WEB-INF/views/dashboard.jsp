@@ -11,69 +11,69 @@
 </head>
 <body>
 
-	<h1>Welcome Admin</h1>
+	<div class="dashboard-container">
 
-	<h3>Logged In User : ${sessionScope.loggedInUser}</h3>
+		<header class="dashboard-header" style="text-align: center;">
+			<h1>Welcome Admin</h1>
+			<h3>Logged In User : ${sessionScope.loggedInUser}</h3>
+		</header>
 
-	<hr>
-	<!-- 	this below code is going to display the message of student added successfully or not -->
-	<%
-	String message = (String) session.getAttribute("message");
-	if (message != null) {
-	%>
-	<h3 style="color: green;"><%=message%></h3>
-	<%
-	session.removeAttribute("message");
-	}
-	%>
+		<hr>
 
-	<a href="student-form">Add Student</a>
+		<div class="alert-section">
+			<%
+			String message = (String) session.getAttribute("message");
+			if (message != null) {
+			%>
+			<h3 style="color: green; text-align: center;"><%=message%></h3>
+			<%
+			session.removeAttribute("message");
+			}
+			%>
+		</div>
 
-	<br>
-	<br>
+		<main class="dashboard-grid">
 
-	<a href="student-view">view all students</a>
+			<section class="nav-card">
+				<h2>Student Management</h2>
+				<div class="nav-links">
+					<a href="student-form" class="btn-link">Add Student</a> <a
+						href="student-view" class="btn-link">View All Students</a> <a
+						href="student-edit" class="btn-link">Update Student</a> <a
+						href="student-delete" class="btn-link">Delete Student</a>
+				</div>
+			</section>
 
-	<br>
-	<br>
+			<section class="nav-card">
+				<h2>Course Management</h2>
+				<div class="nav-links">
+					<a href="add-course" class="btn-link">Add Course</a> <a
+						href="update-course" class="btn-link">Update Course</a> <a
+						href="${pageContext.request.contextPath}/view-courses"
+						class="btn-link">View Courses</a>
+				</div>
+			</section>
 
-	<a href="student-edit">update student</a>
-	<br>
-	<br>
+			<section class="nav-card">
+				<h2>Registration Management</h2>
+				<div class="nav-links">
+					<a href="registration-form" class="btn-link">Register Student
+						for Course</a> <a href="view-registrations" class="btn-link">View
+						Registrations</a> <a href="view-registrations" class="btn-link">Delete
+						Registration</a>
+				</div>
+			</section>
 
-	<a href="student-delete">delete student</a>
+			<section class="nav-card account-card">
+				<h2>Account</h2>
+				<div class="nav-links">
+					<a href="logout" class="btn-link logout-link">Logout</a>
+				</div>
+			</section>
 
-	<br>
-	<br>
+		</main>
 
-	<a href="add-course"> add course</a>
-
-	<br>
-	<br>
-
-	<a href="update-course"> Update Course</a>
-	<br>
-	<br>
-
-
-	<a href="registration-form">Register Student for Course</a>
-
-	<br>
-	<br>
-	<a href="view-registrations">View Registrations</a>
-
-	<br>
-	<br>
-	<a href="view-registrations"> delete registration</a>
-	<br>
-	<br>
-
-	<a href="${pageContext.request.contextPath}/view-courses">View
-		Courses</a>
-	<br>
-	<br>
-
-	<a href="logout">Logout</a>
+	</div>
 
 </body>
 </html>

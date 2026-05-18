@@ -44,6 +44,37 @@ public class UpdateCourseServlet extends HttpServlet {
 		String trainername = req.getParameter("trainername");
 
 		System.out.println("Updating course - ID: " + courseId + ", Name: " + name);
+		// Add this after getting parameters (after float fees = ... line)
+
+		if (name.isEmpty() || trainername.isEmpty()) {
+			session.setAttribute("error", "All fields are required");
+			resp.sendRedirect("course-edit?id=" + courseId);
+			return;
+		}
+
+		if (!name.matches("^[a-zA-Z\\s]+$")) {
+			session.setAttribute("error", "Course name must contain only alphabets and spaces");
+			resp.sendRedirect("course-edit?id=" + courseId);
+			return;
+		}
+
+		if (!trainername.matches("^[a-zA-Z\\s]+$")) {
+			session.setAttribute("error", "Trainer name must contain only alphabets and spaces");
+			resp.sendRedirect("course-edit?id=" + courseId);
+			return;
+		}
+
+		if (duration <= 0) {
+			session.setAttribute("error", "Duration must be greater than 0");
+			resp.sendRedirect("course-edit?id=" + courseId);
+			return;
+		}
+
+		if (fees < 0) {
+			session.setAttribute("error", "Fees cannot be negative");
+			resp.sendRedirect("course-edit?id=" + courseId);
+			return;
+		}
 
 		if (name.isEmpty() || trainername.isEmpty()) {
 			session.setAttribute("error", "All fields are required");

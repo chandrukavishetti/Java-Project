@@ -43,6 +43,30 @@ public class UpdateStudentServlet extends HttpServlet {
 			return;
 		}
 
+		if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || city.isEmpty()) {
+			session.setAttribute("error", "All fields are required");
+			resp.sendRedirect("student-edit?id=" + studentId);
+			return;
+		}
+
+		if (!name.matches("^[a-zA-Z\\s]+$")) {
+			session.setAttribute("error", "Name must contain only alphabets and spaces");
+			resp.sendRedirect("student-edit?id=" + studentId);
+			return;
+		}
+
+		if (!city.matches("^[a-zA-Z\\s]+$")) {
+			session.setAttribute("error", "City name must contain only alphabets and spaces");
+			resp.sendRedirect("student-edit?id=" + studentId);
+			return;
+		}
+
+		if (!phone.matches("^[0-9]+$")) {
+			session.setAttribute("error", "Phone number must contain only numbers");
+			resp.sendRedirect("student-edit?id=" + studentId);
+			return;
+		}
+
 		Student student = new Student(studentId, name, email, phone, age, city);
 		StudentDAO dao = new StudentDAO();
 
