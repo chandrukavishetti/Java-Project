@@ -20,7 +20,7 @@ public class AttendanceTracker {
 
 		System.out.println("sublist of element 1 to 3 : " + list.subList(1, 3));
 
-		Collections.reverse(list);
+		Collections.reverse(list);// reversing the collection
 		System.out.println("after reversing the list : " + list);
 
 	}
