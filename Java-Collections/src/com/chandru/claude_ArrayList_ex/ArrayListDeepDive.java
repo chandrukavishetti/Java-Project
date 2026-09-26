@@ -6,23 +6,28 @@ import java.util.List;
 
 public class ArrayListDeepDive {
 	public static void main(String[] args) {
+		// Best practice: Program to the interface (List) rather than the concrete
+		// implementation
 		List<String> frameworks = new ArrayList<>();
 
-		frameworks.add("Chandrashekhar");
-		frameworks.add("Rupa");
+		frameworks.add("Spring");
+		frameworks.add("Hibernate");
+		frameworks.add("Struts");
 
-		System.out.println("index 1 is : " + frameworks.get(1));
+		// Fast random access
+		System.out.println("Framework at index 1: " + frameworks.get(1));
 
+		// Safely removing elements while iterating
+		// Using a standard for-each loop to remove elements here throws a
+		// ConcurrentModificationException
 		Iterator<String> iterator = frameworks.iterator();
-
 		while (iterator.hasNext()) {
 			String framework = iterator.next();
-			if (framework.equals("Rupa")) {
-				iterator.remove();
+			if (framework.equals("Struts")) {
+				iterator.remove(); // Safely removes "Struts" and shifts remaining elements left
 			}
 		}
-		System.out.println("modern stack " + frameworks);
 
+		System.out.println("Modern Stack: " + frameworks);
 	}
-
 }
