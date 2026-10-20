@@ -18,9 +18,11 @@ select * from emp where comm is null;
 select deptno,count(ename)  from emp where comm is null group by deptno ;
 
 -- #6. Display emp_name,salary,comission,ctc(calculated column)
+select ename,sal+comm from emp;
+
+select ename,sal from emp where ename='allen';
 
 -- #7. Display hire_date, current_date, tenure(calculated col) of the empl
-
 
 -- #8. Display all the employees whose name starts with s
 select * from emp where ename like 'S%';
