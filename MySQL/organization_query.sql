@@ -194,9 +194,18 @@ HAVING
 select l.city from locations l left join countries c on l.country_id=c.country_id join regions r on c.country_id=r.region_id where r.region_name='Europe' group by l.city;
 
 -- How many countries are in the "Middle East and Asia" region?
+select c.country_name,count(r.region_id) from countries c left join regions r on c.region_id=r.region_id where r.region_name='Middle East and Asia' group by c.country_name;
+
 -- List all regions along with the number of countries in each region.
+select r.region_name,count(c.country_name) from regions r left join countries c on r.region_id=c.region_id group by r.region_id;
+
 -- Which countries do not have any associated locations?
+
 -- Find all countries along with their region names, where the region name is either "Europe" or "Asia".
+select c.country_name,r.region_name from countries c left join regions r on r.region_id=c.region_id where r.region_name in ('Europe', 'Asia') ;
+
 -- List all locations in "Italy" along with the city and postal code.
+-- select l.city,l.postal_code from locations l where country_id=1;
+
 -- Which countries have more than one location?
 -- Retrieve all locations in "Canada" and the United States along with the state/province information.
